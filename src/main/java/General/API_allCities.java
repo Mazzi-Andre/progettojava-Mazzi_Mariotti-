@@ -19,8 +19,8 @@ public class API_allCities {
 	//protected Vector <JSONObject> Cities = new Vector <JSONObject> ();
 	private Vector <String> urls = new Vector <String> (); 
 	private Vector <String> cities_names = new Vector <String> (); 
-	protected JSONObject obj_con_data =new JSONObject();
-	private String data_attuale;
+	protected JSONObject Cities_time =new JSONObject();
+	private String current_date;
 	private date d= new date();
 	
 	public API_allCities () {
@@ -82,8 +82,8 @@ public class API_allCities {
 				Cities.add(obj_weather);
 								
 			}
-			data_attuale= (String)(d.getgiorno()+"/"+d.getmese()+"/"+d.getanno());
-			obj_con_data.put("data_attuale", Cities);
+			current_date= (String)(d.getgiorno()+"/"+d.getmese()+"/"+d.getanno());
+			Cities_time.put(current_date, Cities);
 			
 		} catch	(FileNotFoundException e) {
 				e.printStackTrace();
