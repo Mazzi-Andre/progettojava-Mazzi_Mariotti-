@@ -9,19 +9,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import date_test.*;
 
 public class API_allCities {
 	
-	//protected Vector <JSONObject> Cities = new Vector <JSONObject> ();
 	private Vector <String> urls = new Vector <String> (); 
 	private Vector <String> cities_names = new Vector <String> (); 
 	protected JSONObject Cities_time =new JSONObject();
 	private String current_date;
-	private date d= new date();
+	private Date d= new Date();
 	
 	public API_allCities () {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=6621230&appid=e253aeaf220a6c4bf5489677fafb6474");
@@ -47,7 +45,8 @@ public class API_allCities {
 	}
 	
 	public void Download_allCities () {
-		Vector <JSONObject> Cities = new Vector <JSONObject> ();	
+		
+		Vector <JSONObject> Cities = new Vector <JSONObject> (); //=JSONArray?	
 		try {	
 		
 			for (int i=0; i<urls.size(); i++) {
@@ -82,7 +81,7 @@ public class API_allCities {
 				Cities.add(obj_weather);
 								
 			}
-			current_date= (String)(d.getgiorno()+"/"+d.getmese()+"/"+d.getanno());
+			current_date= (String)(d.getDay()+"/"+d.getMonth()+"/"+d.getYear());
 			Cities_time.put(current_date, Cities);
 			
 		} catch	(FileNotFoundException e) {
@@ -99,6 +98,6 @@ public class API_allCities {
 
 	
 	public JSONObject getValori () {
-		return obj_con_data;
+		return Cities_time;
 	}
 }

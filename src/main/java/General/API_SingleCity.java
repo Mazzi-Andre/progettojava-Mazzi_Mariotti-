@@ -84,7 +84,7 @@ public class API_SingleCity {
 		}
 	}
 	
-	public JSONObject getCity () {
+	public JSONObject getCittà () {
 		return City;
 	}
 
