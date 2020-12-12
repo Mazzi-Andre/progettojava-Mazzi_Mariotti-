@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
+import date_test.*;
 
 public class API_allCities {
 	
@@ -19,6 +20,8 @@ public class API_allCities {
 	private Vector <String> urls = new Vector <String> (); 
 	private Vector <String> cities_names = new Vector <String> (); 
 	protected JSONObject obj_con_data =new JSONObject();
+	private String data_attuale;
+	private date d= new date();
 	
 	public API_allCities () {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=6621230&appid=e253aeaf220a6c4bf5489677fafb6474");
@@ -79,8 +82,8 @@ public class API_allCities {
 				Cities.add(obj_weather);
 								
 			}
-			
-			obj_con_data.put("12/12/2020", Cities);
+			data_attuale= (String)(d.getgiorno()+"/"+d.getmese()+"/"+d.getanno());
+			obj_con_data.put("data_attuale", Cities);
 			
 		} catch	(FileNotFoundException e) {
 				e.printStackTrace();
