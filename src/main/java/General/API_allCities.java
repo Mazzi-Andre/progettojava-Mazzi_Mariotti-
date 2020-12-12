@@ -9,14 +9,16 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class API_allCities {
 	
-	protected Vector <JSONObject> Cities = new Vector <JSONObject> ();
+	//protected Vector <JSONObject> Cities = new Vector <JSONObject> ();
 	private Vector <String> urls = new Vector <String> (); 
 	private Vector <String> cities_names = new Vector <String> (); 
+	protected JSONObject obj_con_data =new JSONObject();
 	
 	public API_allCities () {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=6621230&appid=e253aeaf220a6c4bf5489677fafb6474");
@@ -42,7 +44,7 @@ public class API_allCities {
 	}
 	
 	public void Download_allCities () {
-			
+		Vector <JSONObject> Cities = new Vector <JSONObject> ();	
 		try {	
 		
 			for (int i=0; i<urls.size(); i++) {
@@ -75,8 +77,11 @@ public class API_allCities {
 				obj_weather.put("Temperatura percepita", obj_main.get("feels_like"));
 				obj_weather.put("Umidità", obj_main.get("humidity"));
 				Cities.add(obj_weather);
-				
+								
 			}
+			
+			obj_con_data.put("12/12/2020", Cities);
+			
 		} catch	(FileNotFoundException e) {
 				e.printStackTrace();
 		} catch (IOException e ) {
@@ -90,7 +95,7 @@ public class API_allCities {
 	
 
 	
-	public Vector <JSONObject> getValori () {
-		return Cities;
+	public JSONObject getValori () {
+		return obj_con_data;
 	}
 }
