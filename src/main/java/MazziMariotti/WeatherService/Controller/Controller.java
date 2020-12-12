@@ -20,5 +20,11 @@ public class Controller {
 		meta.Download_allCities();
 		return meta;
 	}
+	
+	@GetMapping("/stats")
+	public JSONFile_Mgmt statistics () { 
+		JSONFile_Mgmt stats =new JSONFile_Mgmt();
+		return stats;
+	}
 		
 }
