@@ -24,10 +24,8 @@ public class API_SingleCity {
 	
 	private HashMap <String,String> id_city = new HashMap <String,String> ();
 	private JSONObject City = new JSONObject();
-	private String selected_city;
 	
-	public API_SingleCity (String nome) {
-		selected_city=nome;
+	public API_SingleCity () {
 		City=null;
 		id_city.put("New York", "5039192");
 		id_city.put("Los Angles", "5344994");
@@ -42,7 +40,7 @@ public class API_SingleCity {
 		
 	}
 	
-	public JSONObject getDownload_SingleCity (String name) {
+	public void Download_SingleCity (String name) {
 		
 		try {
 			HttpURLConnection openConnection =(HttpURLConnection) new URL("https://api.openweathermap.org/data/2.5/weather?id="+id_city.get(name)+"&appid=e253aeaf220a6c4bf5489677fafb6474").openConnection();
@@ -84,11 +82,10 @@ public class API_SingleCity {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return City;
 	}
 	
-	/*public JSONObject getCity () {
+	public JSONObject getCity () {
 		return City;
-	}*/
+	}
 
 }

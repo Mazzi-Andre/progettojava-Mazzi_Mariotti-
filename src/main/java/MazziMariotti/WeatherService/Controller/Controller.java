@@ -9,15 +9,16 @@ public class Controller {
 	
 	@GetMapping("/citta")
 	public API_SingleCity città(@RequestParam(name= "city", defaultValue= "nessuna_citta") String city) { 
-		return new API_SingleCity(city);
+		API_SingleCity single = new API_SingleCity();
+		single.Download_SingleCity(city);
+		return single;
 	}
 	
 	@GetMapping("/metadati")
 	public API_allCities metadati () { 
-		return new API_allCities();
+		API_allCities meta =new API_allCities();
+		meta.Download_allCities();
+		return meta;
 	}
-
-	
-	
-	
+		
 }

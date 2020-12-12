@@ -6,22 +6,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-import java.nio.file.Files; //queste due?
-import java.nio.file.Paths;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class API_allCities {
 	
 	protected Vector <JSONObject> Cities = new Vector <JSONObject> ();
 	private Vector <String> urls = new Vector <String> (); 
+	private Vector <String> cities_names = new Vector <String> (); 
 	
 	public API_allCities () {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=6621230&appid=e253aeaf220a6c4bf5489677fafb6474");
@@ -34,14 +29,24 @@ public class API_allCities {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=4335045&appid=e253aeaf220a6c4bf5489677fafb6474");
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=4183849&appid=e253aeaf220a6c4bf5489677fafb6474");
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=4177485&appid=e253aeaf220a6c4bf5489677fafb6474");
-		Cities=null;
+		cities_names.add("San Francisco");
+		cities_names.add("Las Vegas");
+		cities_names.add("Seattle");
+		cities_names.add("Los Angles");
+		cities_names.add("Miami");
+		cities_names.add("New York");
+		cities_names.add("Chicago");
+		cities_names.add("New Orleans");
+		cities_names.add("Boston");
+		cities_names.add("Washington");	
 	}
 	
 	public void Download_allCities () {
-		
-		try {
 			
+		try {	
+		
 			for (int i=0; i<urls.size(); i++) {
+				
 				HttpURLConnection openConnection =(HttpURLConnection) new URL(urls.get(i)).openConnection();
 				openConnection.setRequestMethod("GET");
 				openConnection.setRequestProperty("Content-Type", "application/json");
@@ -66,6 +71,7 @@ public class API_allCities {
 				JSONObject obj = (JSONObject) JSONValue.parseWithException(data);
 				JSONObject obj_main= (JSONObject) obj.get("main");
 				JSONObject obj_weather=new JSONObject();
+				obj_weather.put("Citta", cities_names.get(i));
 				obj_weather.put("Temperatura percepita", obj_main.get("feels_like"));
 				obj_weather.put("Umidità", obj_main.get("humidity"));
 				Cities.add(obj_weather);
@@ -80,10 +86,11 @@ public class API_allCities {
 		} catch (ParseException e) {
 				e.printStackTrace();
 		}
-
 	}
 	
-	public Vector <JSONObject> getCities () {
+
+	
+	public Vector <JSONObject> getValori () {
 		return Cities;
 	}
 }
