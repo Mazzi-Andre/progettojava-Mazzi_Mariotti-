@@ -2,6 +2,7 @@ package MazziMariotti.WeatherService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import Component.*;
 
@@ -14,9 +15,7 @@ public class WeatherServiceApplication {
 		SpringApplication.run(WeatherServiceApplication.class, args);
 		//request automatico (foto bramucci)
 		
-		Components j = new Components();
-		j.avvioConIntervalloFissoTraEsecuzioni();
-		
 	}
+	
 
 }
