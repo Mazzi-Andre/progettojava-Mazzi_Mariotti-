@@ -28,7 +28,7 @@ public class API_SingleCity {
 	public API_SingleCity () {
 		City=null;
 		id_city.put("New York", "5039192");
-		id_city.put("Los Angles", "5344994");
+		id_city.put("Los Angeles", "5344994");
 		id_city.put("Las Vegas", "5475433");
 		id_city.put("Miami", "5162744");
 		id_city.put("San Francisco", "6621230");

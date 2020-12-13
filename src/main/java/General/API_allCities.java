@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import date_test.*;
@@ -35,7 +36,7 @@ public class API_allCities {
 		cities_names.add("San Francisco");
 		cities_names.add("Las Vegas");
 		cities_names.add("Seattle");
-		cities_names.add("Los Angles");
+		cities_names.add("Los Angeles");
 		cities_names.add("Miami");
 		cities_names.add("New York");
 		cities_names.add("Chicago");
@@ -46,7 +47,7 @@ public class API_allCities {
 	
 	public void Download_allCities () {
 		
-		Vector <JSONObject> Cities = new Vector <JSONObject> (); //=JSONArray?	
+		JSONArray Cities = new JSONArray ();
 		try {	
 		
 			for (int i=0; i<urls.size(); i++) {
