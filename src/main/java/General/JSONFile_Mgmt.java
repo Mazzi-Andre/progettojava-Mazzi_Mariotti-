@@ -11,10 +11,14 @@ public class JSONFile_Mgmt {
 		//API_allCities e quindi avro JSONObject protected da usare qua per stampare!
 	}
 	
-	public JSONObject JsonFile_reader () {
+	public void JsonFile_reader () {
 		//lettura massimo
 		//ci sarà oggetto di tipo Stats 
 		//per dire queli "campi" del file
+		
+	}
+	
+	public JSONObject getStatistica () {
 		return Stats_data;
 	}
 	
