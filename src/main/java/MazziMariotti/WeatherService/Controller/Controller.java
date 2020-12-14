@@ -14,7 +14,7 @@ public class Controller {
 	
 	/**
 	 * Controller richiesta GET "/città".
-	 * @param city
+	 * @param city Nome dell città scelta
 	 * @return JSONObject dati della singola città.
 	 */
 	@GetMapping("/citta")

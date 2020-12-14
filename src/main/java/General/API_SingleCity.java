@@ -49,7 +49,7 @@ public class API_SingleCity {
 	/**
 	 * Metodo che consente il collegamento tramite API dei dati meteorologici di una principale
 	 * città americana; Salvataggio di quest'ultimi in un JSONObject.
-	 * @param name
+	 * @param name Nome della citta scelta
 	 */
 	
 	public void Download_SingleCity (String name) {
@@ -101,7 +101,7 @@ public class API_SingleCity {
 	 * e umidità della città interessata.
 	 */
 	
-	public JSONObject getCittà () {
+	public JSONObject getCitta () {
 		return City;
 	}
 
