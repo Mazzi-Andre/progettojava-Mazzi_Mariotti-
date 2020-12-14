@@ -20,6 +20,12 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
+	/**
+	 * Classe di gestione lettura tramite API openweather di una singola città scelta dal client.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
 public class API_SingleCity {
 	
 	private HashMap <String,String> id_city = new HashMap <String,String> ();
@@ -39,6 +45,12 @@ public class API_SingleCity {
 		id_city.put("New Orleans", "4335045");
 		
 	}
+	
+	/**
+	 * Metodo che consente il collegamento tramite API dei dati meteorologici di una principale
+	 * città americana; Salvataggio di quest'ultimi in un JSONObject.
+	 * @param name
+	 */
 	
 	public void Download_SingleCity (String name) {
 		
@@ -83,6 +95,11 @@ public class API_SingleCity {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * @return Il JSONObject City contenenete informazioni su temperatura percepita
+	 * e umidità della città interessata.
+	 */
 	
 	public JSONObject getCittà () {
 		return City;

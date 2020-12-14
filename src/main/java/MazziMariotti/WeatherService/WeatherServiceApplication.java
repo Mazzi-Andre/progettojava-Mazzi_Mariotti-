@@ -13,21 +13,38 @@ import org.springframework.stereotype.Component;
 
 import Component.*;
 
+	/**
+	 * Classe per l'avvio dello SpringApplication e timer programmato.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
 @SpringBootApplication
 public class WeatherServiceApplication {
-
+	
+	/**
+	 * Al run del progetto si avvierà SpringBoot consentendo il collegamento Localhost alla porta 8080.
+	 */
+	
 	public static void main(String[] args) {
 		SpringApplication.run(WeatherServiceApplication.class, args);
 		//request automatico (foto bramucci)
 		
 	}
-	@Scheduled(fixedRate = 2000)
+	
+	/**
+	 * Metodo per l'avvio programmato dell'autosave dei dati.
+	 */
+	@Scheduled(fixedRate = 7200000)
 	void someone() {
-		System.out.println("oggi è il "+ new Date());
+		//System.out.println("oggi è il "+ new Date());
 		
 	}
 
 }
+	/**
+	 * Classe di configurazione dei metodi Scheduled.
+	 *
+	 */
 
 @Component
 @Configuration

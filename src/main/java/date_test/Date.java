@@ -1,7 +1,11 @@
 package date_test;
 
 import java.util.GregorianCalendar;
-
+	/**
+	 * Classe acquisizione data attuale.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
 public class Date {
 	
 	private GregorianCalendar Current_date=new GregorianCalendar();
@@ -17,13 +21,25 @@ public class Date {
 		
 	}
 	
+	/**
+	 * @return Anno.
+	 */
+	
 	public int getYear() {
 		return Year;
 	}
 	
+	/**
+	 * @return Mese
+	 */
+	
 	public int getMonth() {
 		return Month;
 	}
+	
+	/**
+	 * @return Giorno.
+	 */
 	
 	public int getDay() {
 		return Day;

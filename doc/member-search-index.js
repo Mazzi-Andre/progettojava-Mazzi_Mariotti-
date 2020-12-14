@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"General","c":"JSONFile_Mgmt","l":"getStatistica()"},{"p":"General","c":"JSONFile_Mgmt","l":"JSONFile_Mgmt()","url":"%3Cinit%3E()"},{"p":"General","c":"JSONFile_Mgmt","l":"JsonFile_reader()"},{"p":"General","c":"JSONFile_Mgmt","l":"JsonFile_save()"}]

@@ -14,6 +14,11 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import date_test.*;
 
+	/**
+	 * Classe di gestione lettura tramite API openweather di tutte le città interessate.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
 public class API_allCities {
 	
 	private Vector <String> urls = new Vector <String> (); 
@@ -44,6 +49,11 @@ public class API_allCities {
 		cities_names.add("Boston");
 		cities_names.add("Washington");	
 	}
+	
+	/**
+	 * Metodo che consente il collegamento tramite API dei dati meteorologici delle principali
+	 * città americane; Salvataggio di quest'ultimi in un JSONObject.
+	 */
 	
 	public void Download_allCities () {
 		
@@ -97,7 +107,10 @@ public class API_allCities {
 	}
 	
 
-	
+	/**
+	 * @return Il JSONObject Cities_time contenenete informazioni su temperatura percepita
+	 * e umidità di ogni città interessata.
+	 */
 	public JSONObject getValori () {
 		return Cities_time;
 	}
