@@ -71,9 +71,9 @@ public class JSONFile_Mgmt {
 	 * @return oggetto della statistica.
 	 */
 	
-	public JSONObject getStatistica () {
+	/*public JSONObject getStatistica () {
 		return Stats_data;
-	}
+	}*/
 	
 	public JSONArray getArray () {
 		return meta_file;
