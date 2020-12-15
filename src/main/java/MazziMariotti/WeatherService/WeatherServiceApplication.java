@@ -1,7 +1,6 @@
 package MazziMariotti.WeatherService;
 
-import java.util.Date;
-
+import General.JSONFile_Mgmt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -11,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import Component.*;
+//import Component.*;
 
 	/**
 	 * Classe per l'avvio dello SpringApplication e timer programmato.
@@ -34,10 +33,10 @@ public class WeatherServiceApplication {
 	/**
 	 * Metodo per l'avvio programmato dell'autosave dei dati.
 	 */
-	@Scheduled(fixedRate = 7200000)
+	@Scheduled(fixedRate = 2000)
 	void someone() {
-		//System.out.println("oggi è il "+ new Date());
-		
+		JSONFile_Mgmt meta_file= new JSONFile_Mgmt ();
+		meta_file.JsonFile_save();
 	}
 
 }

@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
-import date_test.*;
+import date_test.Date;
 
 	/**
 	 * Classe di gestione lettura tramite API openweather di tutte le città interessate.
@@ -23,9 +23,8 @@ public class API_allCities {
 	
 	private Vector <String> urls = new Vector <String> (); 
 	private Vector <String> cities_names = new Vector <String> (); 
-	protected JSONObject Cities_time =new JSONObject();
-	private String current_date;
-	private Date d= new Date();
+	private JSONObject Cities_time =new JSONObject();
+	
 	
 	public API_allCities () {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=6621230&appid=e253aeaf220a6c4bf5489677fafb6474");
@@ -56,7 +55,8 @@ public class API_allCities {
 	 */
 	
 	public void Download_allCities () {
-		
+		String current_date;
+		Date d= new Date();
 		JSONArray Cities = new JSONArray ();
 		try {	
 		

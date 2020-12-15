@@ -19,17 +19,3 @@ class SchedulingCOnfiguration {
 	
 }
 
-/*@Autowired
-JSONFile_Mgmt Json_file;*/
-/*
-@Autowired
-API_allCities Json_file;
-
-@Scheduled(fixedRate = 6000, initialDelay = 10000)
-public void avvioConIntervalloFissoTraEsecuzioni() {
-	API_allCities j= new API_allCities();
-    j.Download_allCities();
-    System.out.println(j.getValori());
-    System.out.println("pausa finita");
-    
-}*/
