@@ -33,7 +33,7 @@ public class WeatherServiceApplication {
 	/**
 	 * Metodo per l'avvio programmato dell'autosave dei dati.
 	 */
-	@Scheduled(fixedRate = 2000)
+	@Scheduled(fixedRate = 7200000)
 	void someone() {
 		JSONFile_Mgmt meta_file= new JSONFile_Mgmt ();
 		meta_file.JsonFile_save();

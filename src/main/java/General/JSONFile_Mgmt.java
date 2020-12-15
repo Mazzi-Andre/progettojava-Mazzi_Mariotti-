@@ -1,7 +1,9 @@
 package General;
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,6 +19,7 @@ import org.json.simple.JSONObject;
 
 public class JSONFile_Mgmt {
 	private JSONObject Stats_data = new JSONObject ();
+	private JSONArray meta_file = new JSONArray();
 	
 	public JSONFile_Mgmt () {}
 	
