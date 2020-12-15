@@ -1,4 +1,12 @@
 package General;
+import java.io.BufferedInputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 	/**
@@ -37,9 +45,22 @@ public class JSONFile_Mgmt {
 	 */
 	
 	public void JsonFile_reader () {
-		//lettura massimo
-		//ci sarà oggetto di tipo Stats 
-		//per dire queli "campi" del file
+		
+		try { 
+		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File.json")));
+
+		    while(true) {
+		    	meta_file.add((JSONObject) file_input.readObject());
+		        
+		     }
+		    
+		} catch(EOFException e) {
+		       System.out.println("File finito");
+		} catch (IOException e) {
+		        e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+		        e.printStackTrace();
+		}
 		
 	}
 	
@@ -49,6 +70,10 @@ public class JSONFile_Mgmt {
 	
 	public JSONObject getStatistica () {
 		return Stats_data;
+	}
+	
+	public JSONArray getArray () {
+		return meta_file;
 	}
 	
 }
