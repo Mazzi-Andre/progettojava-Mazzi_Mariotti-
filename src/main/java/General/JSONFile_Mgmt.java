@@ -16,8 +16,20 @@ public class JSONFile_Mgmt {
 	 * Metodo per la scrittura della temperatura percepita e umidità di tutte le città su un unico file .json
 	 */
 	public void JsonFile_save () {
-		//questa la richiamo quando scaricato con 
-		//API_allCities e quindi avro JSONObject protected da usare qua per stampare!
+		API_allCities save = new API_allCities();
+		save.Download_allCities();
+		try {
+			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File.json",true))) {
+				protected void writeStreamHeader() throws IOException {
+				
+					reset();
+				}
+			};
+			file_output.writeObject(save.getValori());
+			file_output.close();			
+			} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
