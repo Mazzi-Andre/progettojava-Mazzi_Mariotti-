@@ -2,6 +2,7 @@ package MazziMariotti.WeatherService.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import Component.prova;
 import Filter_Stats.*;
 import General.*;
 
@@ -46,8 +47,14 @@ public class Controller {
 	public JSONFile_Mgmt Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		Stt(stats.getArray())
 		return stats;
+	}
+	
+	@GetMapping("/prova")
+	public prova Prova () { 
+		prova meta =new prova();
+		meta.Download_allCities();
+		return meta;
 	}
 		
 }

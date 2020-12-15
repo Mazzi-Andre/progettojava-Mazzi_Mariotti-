@@ -1,6 +1,6 @@
 package Filter_Stats;
 
-import General.JSONFile_Mgmt;
+import org.json.simple.JSONArray;
 
 public class Stats_hum extends Filter {
 	
