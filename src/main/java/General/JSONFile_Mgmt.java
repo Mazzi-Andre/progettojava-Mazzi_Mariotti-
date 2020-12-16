@@ -35,6 +35,11 @@ public class JSONFile_Mgmt extends API_allCities{
 		super();
 	}
 	
+	/**
+	 * Overriding del metodo Download_allCities, utilizzata per salvare dati all'interno di un file JSON;
+	 * Utilizzato per una lettura più facilitata del file 
+	 */
+	
 	public void Download_allCities () {
 		String current_date;
 		Date d= new Date();

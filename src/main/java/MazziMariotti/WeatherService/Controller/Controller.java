@@ -2,7 +2,6 @@ package MazziMariotti.WeatherService.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
-import Component.prova;
 import Filter_Stats.*;
 import General.*;
 
@@ -50,11 +49,4 @@ public class Controller {
 		return stats;
 	}
 	
-	@GetMapping("/prova")
-	public prova Prova () { 
-		prova meta =new prova();
-		meta.Download_allCities();
-		return meta;
-	}
-		
 }

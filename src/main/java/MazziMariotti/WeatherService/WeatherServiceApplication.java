@@ -35,8 +35,9 @@ public class WeatherServiceApplication {
 	 */
 	@Scheduled(fixedRate = 7200000)
 	void someone() {
-		/*JSONFile_Mgmt meta_file= new JSONFile_Mgmt ();
-		meta_file.JsonFile_save();*/
+		JSONFile_Mgmt meta_file= new JSONFile_Mgmt ();
+		meta_file.Download_allCities();
+		meta_file.JsonFile_save();
 	}
 
 }
