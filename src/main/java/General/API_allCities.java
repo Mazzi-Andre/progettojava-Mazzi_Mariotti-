@@ -21,9 +21,9 @@ import date_test.Date;
 	 */
 public class API_allCities {
 	
-	private Vector <String> urls = new Vector <String> (); 
-	private Vector <String> cities_names = new Vector <String> (); 
-	private JSONObject Cities_time =new JSONObject();
+	protected Vector <String> urls = new Vector <String> (); 
+	protected Vector <String> cities_names = new Vector <String> (); 
+	protected JSONObject Cities_time =new JSONObject();
 	
 	
 	public API_allCities () {
