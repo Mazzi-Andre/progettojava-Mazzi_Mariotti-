@@ -30,7 +30,6 @@ import date_test.Date;
 	 */
 
 public class JSONFile_Mgmt extends API_allCities{
-	private JSONObject Stats_data = new JSONObject (); // da cancellare 
 	private JSONArray meta_file = new JSONArray();
 	
 	public JSONFile_Mgmt () {
