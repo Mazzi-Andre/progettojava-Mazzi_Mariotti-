@@ -41,7 +41,6 @@ public class JSONFile_Mgmt extends API_allCities{
 	 */
 	
 	public void Download_allCities () {
-		String current_date;
 		Date d= new Date();
 		JSONArray Cities = new JSONArray ();
 		try {	

@@ -11,11 +11,10 @@ public class Stats_temp extends Filter{
 	}
 	
 	public void reader(int period) {
-		int k =0;
-		for(int i=period; i>0 ; i-- ) {
-			Stats_Array.get((Stats_Array.size()-1)-k);
+	JSONArray support_data = new JSONArray();
+		
+		for (int i=Stats_Array.size()-1; i>Stats_Array.size()-period; i--) {
 			
-			k++;
 		}
 	}
 	
