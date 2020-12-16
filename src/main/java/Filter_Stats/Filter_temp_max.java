@@ -13,10 +13,6 @@ public class Filter_temp_max {
 		this.a=a;
 		max=0;
 		citta=null;
-	}
-	
-	public void get_temp_max () {
-		
 		JSONObject o = new JSONObject();
 		o= (JSONObject) this.a.get(0);
 		max= (double) o.get("Temperatura percepita");
@@ -30,6 +26,11 @@ public class Filter_temp_max {
 			}
 		}
 	}
+	
+	/*public void get_temp_max () {
+		
+	
+	}*/
 	
 	public String getCitta () {
 		return citta;
