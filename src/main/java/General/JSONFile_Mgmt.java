@@ -19,6 +19,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+import Filter_Stats.Stats_hum;
+import Filter_Stats.Stats_temp;
 import date_test.Date;
 
 	/**
@@ -143,9 +145,16 @@ public class JSONFile_Mgmt extends API_allCities{
 	/*public JSONObject getStatistica () {
 		return Stats_data;
 	}*/
-	
+	/*
 	public JSONArray getArray () {
 		return meta_file;
+	}*/
+	
+	public JSONObject getStats() {
+		Stats_hum h = new Stats_hum(meta_file);
+		Stats_temp t = new Stats_temp(meta_file);
+		JSONObject obj = new JSONObject();
+		return obj;
 	}
 	
 }

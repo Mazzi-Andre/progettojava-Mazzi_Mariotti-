@@ -43,10 +43,10 @@ public class Controller {
 	 */
 	
 	@GetMapping("/stats")
-	public JSONFile_Mgmt Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
+	public JSONObject Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		return stats;
+		return stats.getStats();
 	}
 	
 }
