@@ -4,9 +4,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Filter_temp_min {
-	JSONArray meta = new JSONArray();
-	JSONObject Appoggio = new JSONObject();
-	JSONObject Final = new JSONObject();
+	
+	private JSONArray meta = new JSONArray();
+	private JSONObject Appoggio = new JSONObject();
 	
 	private double Min;
 	private String City;
@@ -16,7 +16,7 @@ public class Filter_temp_min {
 		Appoggio.put("Const", meta.get(meta.size()-1));
 	}
 	
-	public JSONObject temp_min(){
+	public void temp_min(){
 		
 		Min = (double) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
@@ -29,14 +29,14 @@ public class Filter_temp_min {
 				City = (String)o.get("Citta");
 			}
 		}
-		
-		Appoggio.remove("Const");
-		Appoggio.put("Citta", City);
-		Appoggio.put("Temperatura", Min);
-		
-		Final.put("Temperatura minima",Appoggio);
-		
-		return Final;
+	}
+	
+	public String getCitta () {
+		return City;
+	}
+	
+	public double getMin () {
+		return Min;
 	}
 
 }

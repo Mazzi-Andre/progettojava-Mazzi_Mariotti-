@@ -4,11 +4,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Filter_hum_min {
-	JSONArray meta = new JSONArray();
-	JSONObject Appoggio = new JSONObject();
-	JSONObject Final = new JSONObject();
+	private JSONArray meta = new JSONArray();
+	private JSONObject Appoggio = new JSONObject();
 	
-	private double Min;
+	private int Min;
 	private String City;
 	
 	public Filter_hum_min(JSONArray A) {
@@ -16,26 +15,27 @@ public class Filter_hum_min {
 		Appoggio.put("Const", meta.get(meta.size()-1));
 	}
 	
-	public JSONObject temp_min(){
+	public void temp_min(){
 		
-		Min = (double) Appoggio.get("Temperatura percepita");
+		Min = (int) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
 		
 		for (int i=meta.size()-1; i>0 ;i--) {
 			JSONObject o=new JSONObject();
 			o.put("Const",meta.get(i));
-			if ( Min > (double) o.get("Umidità")) {
-				Min = (double)o.get("Umidità");
+			if ( Min > (int) o.get("Umidità")) {
+				Min = (int)o.get("Umidità");
 				City = (String)o.get("Citta");
 			}
 		}
-		
-		Appoggio.remove("Const");
-		Appoggio.put("Citta", City);
-		Appoggio.put("Umidità", Min);
-		
-		Final.put("Umidità minima",Appoggio);
-		
-		return Final;
+	
+	}
+	
+	public String getCitta () {
+		return City;
+	}
+	
+	public int getMin () {
+		return Min;
 	}
 }
