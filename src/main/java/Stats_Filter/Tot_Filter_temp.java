@@ -1,20 +1,20 @@
-package Filter_Stats;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Filter_temp_tot {
+public class Tot_Filter_temp {
 	
 	private JSONArray a = new JSONArray();
 	private JSONArray tot_temp = new JSONArray();
-	private Filter_temp_max M;
-	private Filter_temp_min m;
+	private Max_Filter_temp M;
+	private Min_Filter_temp m;
 	private double max;
 	private String citta_max;
 	private String citta_min;
 	private double min;
 	
-	public Filter_temp_tot (JSONArray a) { //che sarà meta_file
+	public Tot_Filter_temp (JSONArray a) { //che sarà meta_file
 		this.a=a;
 		max=0;
 		min=0;
@@ -25,8 +25,8 @@ public class Filter_temp_tot {
 	public void tot_temp (int period) {
 		JSONArray obj= new JSONArray();
 		obj=(JSONArray) this.a.get(this.a.size()-1);
-		M = new Filter_temp_max (obj);
-		m= new Filter_temp_min (obj);
+		M = new Max_Filter_temp (obj);
+		m= new Min_Filter_temp (obj);
 		max = M.getMax();
 		citta_max=M.getCitta();
 		min= m.getMin();
@@ -35,8 +35,8 @@ public class Filter_temp_tot {
 		for (int i=this.a.size()-2; i>this.a.size()-period; i--) {
 				
 			obj= (JSONArray) this.a.get(i);
-			m = new Filter_temp_min (obj);
-			M = new Filter_temp_max (obj);
+			m = new Min_Filter_temp (obj);
+			M = new Max_Filter_temp (obj);
 			if (max < M.getMax()) {
 				max = M.getMax();
 				citta_max = M.getCitta();

@@ -1,16 +1,18 @@
-package Filter_Stats;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-public class Stats_hum extends Filter {
+import General.JSONFile_Mgmt;
+
+public class Temp_Stats extends Filter{
 	
-	public Stats_hum(JSONArray a) {
+	public Temp_Stats(JSONArray a) {
 		super(a);
-		
 	}
 	
 	public void reader(int period) {
-		
+	
 	}
 	
 	public double get_max() {
@@ -20,4 +22,7 @@ public class Stats_hum extends Filter {
 	public double get_min() {
 		return min;
 	}
+	
+
+	
 }

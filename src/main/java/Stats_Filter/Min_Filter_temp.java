@@ -1,9 +1,9 @@
-package Filter_Stats;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Filter_temp_min {
+public class Min_Filter_temp {
 	
 	private JSONArray meta = new JSONArray();
 	private JSONObject Appoggio = new JSONObject();
@@ -11,7 +11,7 @@ public class Filter_temp_min {
 	private double Min;
 	private String City;
 	
-	public Filter_temp_min(JSONArray A) {
+	public Min_Filter_temp(JSONArray A) {
 		this.meta = A;
 		Appoggio.put("Const", meta.get(meta.size()-1));
 	}
