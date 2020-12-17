@@ -9,6 +9,9 @@ public class Filter_hum_min {
 	
 	private int Min;
 	private String City;
+	private int giorno;
+	private int mese;
+	private int anno;
 	
 	public Filter_hum_min() {}
 	
@@ -19,6 +22,9 @@ public class Filter_hum_min {
 		
 		Min = (int) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
+		giorno=(int) Appoggio.get("giorno");
+		mese=(int) Appoggio.get("mese");
+		anno=(int) Appoggio.get("anno");
 		
 		for (int i=meta.size()-1; i>0 ;i--) {
 			JSONObject o=new JSONObject();
@@ -26,6 +32,7 @@ public class Filter_hum_min {
 			if ( Min > (int) o.get("Umidità")) {
 				Min = (int)o.get("Umidità");
 				City = (String)o.get("Citta");
+				
 			}
 		}
 	

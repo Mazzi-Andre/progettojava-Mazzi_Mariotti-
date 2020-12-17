@@ -9,6 +9,9 @@ public class Filter_hum_max {
 	
 	private int Max;
 	private String City;
+	private int giorno;
+	private int mese;
+	private int anno;
 	
 	public Filter_hum_max() {}
 	
@@ -18,6 +21,9 @@ public class Filter_hum_max {
 		
 		Max = (int) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
+		giorno=(int) Appoggio.get("giorno");
+		mese=(int) Appoggio.get("mese");
+		anno=(int) Appoggio.get("anno");
 		
 		for (int i=meta.size()-1; i>0 ;i--) {
 			JSONObject o=new JSONObject();
