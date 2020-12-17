@@ -16,7 +16,7 @@ public class Filter_hum_max {
 	public Filter_hum_max() {}
 	
 	public void hum_max(JSONArray A){
-		this.meta = A;
+		this.meta = (JSONArray) A;
 		Appoggio.put("Const", meta.get(meta.size()-1));
 		
 		Max = (int) Appoggio.get("Temperatura percepita");

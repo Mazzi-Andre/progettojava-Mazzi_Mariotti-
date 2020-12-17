@@ -100,13 +100,14 @@ public class JSONFile_Mgmt extends API_allCities{
 	
 	public void JsonFile_save () {
 		try {
-			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File.json",true))) {
+			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File2.json",true))) {
 				protected void writeStreamHeader() throws IOException {
-				
+					
 					reset();
 				}
+				
 			};
-			file_output.writeObject(Cities_time);
+		    file_output.writeObject(Cities_time);
 			file_output.close();			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -121,7 +122,7 @@ public class JSONFile_Mgmt extends API_allCities{
 		
 		try { 
 			
-		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File.json")));
+		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File2.json")));
 
 		    while(true) {
 		    	meta_file.add((JSONObject) file_input.readObject());

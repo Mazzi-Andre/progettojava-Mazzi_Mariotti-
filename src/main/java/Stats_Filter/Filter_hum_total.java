@@ -20,16 +20,20 @@ public class Filter_hum_total {
 	public Filter_hum_total () {}
 	
 	//funzione di filtraggio
-	public void hum(JSONArray A, int period) {
-		this.meta=A;
-		int vect []=null;
+	public void hum( JSONArray A, int period) {
+		try {
+			
+		
+		this.meta=(JSONArray) A;
+		System.out.println(this.meta.size());
 		Date_Filter date = new Date_Filter ();
 		Appoggio = (JSONObject) this.meta.get(meta.size()-1);
 		JSONArray a= new JSONArray();
-		a=(JSONArray) Appoggio.get("Citta");
+		a=(JSONArray) Appoggio.get("citta");
+		System.out.println(Appoggio.get("citta"));
 		Fmin.hum_min(a);
 		Fmax.hum_max(a);
-		JSONObject obj = new JSONObject ();
+		
 		
 		min = Fmin.getMin();
 		Cmin =Fmin.getCitta();
@@ -64,6 +68,9 @@ public class Filter_hum_total {
 		ar2.put("Umidità minima", min);
 		tot_hum.add(ar);
 		tot_hum.add(ar2);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
 	}
 	
 	//funzione get JASONArray

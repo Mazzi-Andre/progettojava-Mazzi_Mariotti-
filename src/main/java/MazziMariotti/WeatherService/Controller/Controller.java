@@ -49,8 +49,8 @@ public class Controller {
 		stats.JsonFile_reader();
 		Hum_Stats hum = new Hum_Stats (stats.getArray());
 		Temp_Stats temp = new Temp_Stats (stats.getArray());
-		return temp.reader(period);
 		//return hum.reader(period);
+		return temp.reader(period);
 		
 		
 	}
