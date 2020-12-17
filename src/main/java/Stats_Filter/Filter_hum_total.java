@@ -25,7 +25,7 @@ public class Filter_hum_total {
 		//Appoggio = (JSONArray) this.meta.get(meta.size()-1);
 		Fmin.hum_min((JSONArray) this.meta.get(meta.size()-1));
 		
-		for (int i=meta.size()-2; i > (meta.size()-period) ;i--) {
+		for (int i=meta.size()-2; i > (meta.size()-period) ; i--) {
 			
 		}
 	}

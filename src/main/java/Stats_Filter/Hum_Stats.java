@@ -9,15 +9,10 @@ public class Hum_Stats extends Filter {
 		
 	}
 	
-	public void reader(int period) {
+	public JSONArray reader(int period) {
 		
-	}
-	
-	public double get_max() {
-		return max;
-	}
-	
-	public double get_min() {
-		return min;
+		Filter_hum_total tot = new Filter_hum_total (Stats_Array);
+		tot.tot_temp(period);
+		return tot.getTot_temp();
 	}
 }
