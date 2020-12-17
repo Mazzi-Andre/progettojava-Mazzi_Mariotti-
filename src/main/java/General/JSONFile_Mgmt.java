@@ -139,22 +139,13 @@ public class JSONFile_Mgmt extends API_allCities{
 	}
 	
 	/**
-	 * @return oggetto della statistica.
+	 * @return JSONArray letto dal file.
 	 */
 	
-	/*public JSONObject getStatistica () {
-		return Stats_data;
-	}*/
-	/*
+	
 	public JSONArray getArray () {
 		return meta_file;
-	}*/
-	
-	public JSONObject getStats() {
-		Hum_Stats h = new Hum_Stats(meta_file);
-		Temp_Stats t = new Temp_Stats(meta_file);
-		JSONObject obj = new JSONObject();
-		return obj;
 	}
+	
 	
 }

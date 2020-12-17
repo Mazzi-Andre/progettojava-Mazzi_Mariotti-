@@ -1,4 +1,4 @@
-package Filter_Stats;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

@@ -1,5 +1,6 @@
 package MazziMariotti.WeatherService.Controller;
 
+import org.json.simple.JSONArray;
 import org.springframework.web.bind.annotation.*;
 
 import General.*;
@@ -43,10 +44,15 @@ public class Controller {
 	 */
 	
 	@GetMapping("/stats")
-	public JSONObject Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
+	public JSONArray Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		return stats.getStats();
+		Hum_Stats hum = new Hum_Stats (stats.getArray());
+		Temp_Stats temp = new Temp_Stats (stats.getArray());
+		return temp.reader(period);
+		//return hum.reader(period);
+		
+		
 	}
 	
 }
