@@ -4,36 +4,37 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Filter_hum_max {
-	private JSONArray a = new JSONArray();
-	private int max;
-	private String citta;
+	private JSONArray meta = new JSONArray();
+	private JSONObject Appoggio = new JSONObject();
 	
-	public Filter_hum_max (JSONArray a) {
-		this.a=a;
-		JSONObject o = new JSONObject();
-		o= (JSONObject) this.a.get(0);
-		max= (int) o.get("Umidità");
-		citta= (String) o.get("Citta");
+	private int Max;
+	private String City;
+	
+	public Filter_hum_max() {}
+	
+	public void hum_max(JSONArray A){
+		this.meta = A;
+		Appoggio.put("Const", meta.get(meta.size()-1));
 		
-		for (int i=1; i<a.size(); i++) {
-			o=(JSONObject) this.a.get(i);
-			if (max < (double) o.get("Umidità")) {
-				max=(int) o.get("Umidità");
-				citta= (String) o.get("Citta");
+		Max = (int) Appoggio.get("Temperatura percepita");
+		City = (String) Appoggio.get("Citta");
+		
+		for (int i=meta.size()-1; i>0 ;i--) {
+			JSONObject o=new JSONObject();
+			o.put("Const",meta.get(i));
+			if ( Max < (int) o.get("Umidità")) {
+				Max = (int)o.get("Umidità");
+				City = (String)o.get("Citta");
 			}
 		}
+	
 	}
 	
-/*public void get_hum_max () {
-		
-		
-	}*/
-	
 	public String getCitta () {
-		return citta;
+		return City;
 	}
 	
 	public int getMax () {
-		return max;
+		return Max;
 	}
 }

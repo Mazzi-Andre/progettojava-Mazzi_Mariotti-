@@ -30,6 +30,7 @@ public class Filter_temp_min {
 			}
 		}
 	}
+
 	
 	public String getCitta () {
 		return City;

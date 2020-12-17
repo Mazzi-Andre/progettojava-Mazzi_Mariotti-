@@ -10,12 +10,12 @@ public class Filter_hum_min {
 	private int Min;
 	private String City;
 	
-	public Filter_hum_min(JSONArray A) {
+	public Filter_hum_min() {}
+	
+	public void hum_min(JSONArray A){
+		
 		this.meta = A;
 		Appoggio.put("Const", meta.get(meta.size()-1));
-	}
-	
-	public void temp_min(){
 		
 		Min = (int) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
