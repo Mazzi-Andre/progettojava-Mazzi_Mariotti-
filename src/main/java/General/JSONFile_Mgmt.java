@@ -108,7 +108,7 @@ public class JSONFile_Mgmt extends API_allCities{
 			};
 			file_output.writeObject(Cities_time);
 			file_output.close();			
-			} catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

@@ -7,6 +7,7 @@ public class Min_Filter_temp {
 	
 	private JSONArray meta = new JSONArray();
 	private JSONObject Appoggio = new JSONObject();
+	private int date[];
 	
 	private double Min;
 	private String City;
@@ -20,6 +21,9 @@ public class Min_Filter_temp {
 		
 		Min = (double) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
+		date[0] = (int) Appoggio.get("giorno");
+		date[1] = (int) Appoggio.get("mese");
+		date[2] = (int) Appoggio.get("anno");
 		
 		for (int i=meta.size()-1; i>0 ;i--) {
 			JSONObject o=new JSONObject();
@@ -37,6 +41,10 @@ public class Min_Filter_temp {
 	
 	public double getMin () {
 		return Min;
+	}
+	
+	public int [] getDate () {
+		return date;
 	}
 
 }

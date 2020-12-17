@@ -23,12 +23,14 @@ public class Tot_Filter_temp {
 	}
 	
 	public void tot_temp (int period) {
+		Date_Filter D = new Date_Filter ();
 		JSONObject obj= new JSONObject();
 		obj=(JSONObject) this.a.get(this.a.size()-1);
 		M = new Max_Filter_temp ( (JSONArray) obj.get("citta"));
 		m= new Min_Filter_temp ((JSONArray) obj.get("citta"));
 		max = M.getMax();
 		citta_max=M.getCitta();
+		int time[] = m.getDate();
 		min= m.getMin();
 		citta_min=m.getCitta();
 			
@@ -37,14 +39,18 @@ public class Tot_Filter_temp {
 			obj= (JSONObject) this.a.get(i);
 			m = new Min_Filter_temp ((JSONArray) obj.get("citta"));
 			M = new Max_Filter_temp ((JSONArray) obj.get("citta"));
-			if (max < M.getMax()) {
-				max = M.getMax();
-				citta_max = M.getCitta();
+			
+			if (D.check(time, m.getDate())) {
+				if (max < M.getMax()) {
+					max = M.getMax();
+					citta_max = M.getCitta();
+				}
+				if (min > m.getMin()) {
+					min = m.getMin();
+					citta_min = m.getCitta();
+				}
 			}
-			if (min > m.getMin()) {
-				min = m.getMin();
-				citta_min = m.getCitta();
-			}	
+			time=m.getDate();
 		}
 		JSONObject ar = new JSONObject();
 		JSONObject ar2 = new JSONObject();

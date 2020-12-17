@@ -25,7 +25,7 @@ public class Filter_hum_max {
 		mese=(int) Appoggio.get("mese");
 		anno=(int) Appoggio.get("anno");
 		
-		for (int i=meta.size()-1; i>0 ;i--) {
+		for (int i=meta.size()-2; i>0 ; i--) {
 			JSONObject o=new JSONObject();
 			o.put("Const",meta.get(i));
 			if ( Max < (int) o.get("Umidità")) {
