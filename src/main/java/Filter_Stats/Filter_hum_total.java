@@ -10,7 +10,7 @@ public class Filter_hum_total {
 	private Filter_hum_max Fmax = new Filter_hum_max();
 	private JSONArray tot_temp = new JSONArray();
 	
-	private JSONArray Appoggio = new JSONArray();
+	private JSONObject Appoggio = new JSONObject();
 	private int min;
 	private int max;
 	private String Cmin;
@@ -21,11 +21,10 @@ public class Filter_hum_total {
 	
 	//funzione di filtraggio
 	public void hum(JSONArray A, int period) {
-		
 		this.meta=A;
-		//Appoggio = (JSONArray) this.meta.get(meta.size()-1);
-		Fmin.hum_min((JSONArray) this.meta.get(meta.size()-1));
-		Fmax.hum_max((JSONArray) this.meta.get(meta.size()-1));
+		Appoggio = (JSONObject) this.meta.get(meta.size()-1);
+		Fmin.hum_min((JSONArray) Appoggio.get("Citta"));
+		Fmax.hum_max((JSONArray) Appoggio.get("Citta"));
 		
 		min = Fmin.getMin();
 		Cmin =Fmin.getCitta();
@@ -33,8 +32,9 @@ public class Filter_hum_total {
 		Cmax = Fmax.getCitta();
 		
 		for (int i=meta.size()-2; i > (meta.size()-period) ;i--) {
-			Fmin.hum_min((JSONArray) this.meta.get(meta.size()-i));
-			Fmax.hum_max((JSONArray) this.meta.get(meta.size()-i));
+			Appoggio = (JSONObject) this.meta.get(meta.size()-i);
+			Fmin.hum_min((JSONArray) Appoggio.get("Citta"));
+			Fmax.hum_max((JSONArray) Appoggio.get("Citta"));
 			
 			if (max < Fmax.getMax()) {
 				max = Fmax.getMax();
