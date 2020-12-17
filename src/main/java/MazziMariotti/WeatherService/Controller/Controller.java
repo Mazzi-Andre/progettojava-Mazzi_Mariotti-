@@ -2,8 +2,8 @@ package MazziMariotti.WeatherService.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
-import Filter_Stats.*;
 import General.*;
+import Stats_Filter.*;
 
 	/**
 	 * Classe dei controller per la getione delle richieste dal server.

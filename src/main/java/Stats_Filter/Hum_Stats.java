@@ -1,10 +1,10 @@
-package Filter_Stats;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
 
-public class Stats_hum extends Filter {
+public class Hum_Stats extends Filter {
 	
-	public Stats_hum(JSONArray a) {
+	public Hum_Stats(JSONArray a) {
 		super(a);
 		
 	}

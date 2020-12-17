@@ -19,8 +19,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
-import Filter_Stats.Stats_hum;
-import Filter_Stats.Stats_temp;
+import Stats_Filter.Hum_Stats;
+import Stats_Filter.Temp_Stats;
 import date_test.Date;
 
 	/**
@@ -97,6 +97,7 @@ public class JSONFile_Mgmt extends API_allCities{
 	/**
 	 * Metodo per la scrittura della temperatura percepita e umidità di tutte le città su un unico file .json
 	 */
+	
 	public void JsonFile_save () {
 		try {
 			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File.json",true))) {
@@ -113,12 +114,13 @@ public class JSONFile_Mgmt extends API_allCities{
 	}
 	
 	/**
-	 * Metodo per la lettura personalizzata in base alla statistica, del file .json  
+	 * Metodo per la lettura del file .json     //da mettere nome file
 	 */
 	
 	public void JsonFile_reader () {
 		
 		try { 
+			
 		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File.json")));
 
 		    while(true) {
@@ -149,8 +151,8 @@ public class JSONFile_Mgmt extends API_allCities{
 	}*/
 	
 	public JSONObject getStats() {
-		Stats_hum h = new Stats_hum(meta_file);
-		Stats_temp t = new Stats_temp(meta_file);
+		Hum_Stats h = new Hum_Stats(meta_file);
+		Temp_Stats t = new Temp_Stats(meta_file);
 		JSONObject obj = new JSONObject();
 		return obj;
 	}

@@ -1,22 +1,18 @@
-package Filter_Stats;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Filter_temp_max {
+public class Max_Filter_temp {
 	
 	private JSONArray a = new JSONArray();
 	private double max;
 	private String citta;
 	
-	public Filter_temp_max (JSONArray a) {
+	public Max_Filter_temp (JSONArray a) {
 		this.a=a;
 		max=0;
 		citta=null;
-	}
-	
-	public void get_temp_max () {
-		
 		JSONObject o = new JSONObject();
 		o= (JSONObject) this.a.get(0);
 		max= (double) o.get("Temperatura percepita");
@@ -30,6 +26,11 @@ public class Filter_temp_max {
 			}
 		}
 	}
+	
+	/*public void get_temp_max () {
+		
+	
+	}*/
 	
 	public String getCitta () {
 		return citta;
