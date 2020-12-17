@@ -6,18 +6,13 @@ public class Hum_Stats extends Filter {
 	
 	public Hum_Stats(JSONArray a) {
 		super(a);
+	}
+	
+	public JSONArray reader(int period) {
 		
-	}
-	
-	public void reader(int period) {
-		
-	}
-	
-	public double get_max() {
-		return max;
-	}
-	
-	public double get_min() {
-		return min;
+		Filter_hum_total tot = new Filter_hum_total ();
+		//System.out.println(Stats_Array);
+		tot.hum(Stats_Array, period);
+		return tot.getTot_hum();
 	}
 }

@@ -14,7 +14,7 @@ public class Tot_Filter_temp {
 	private String citta_min;
 	private double min;
 	
-	public Tot_Filter_temp (JSONArray a) { //che sarà meta_file
+	public Tot_Filter_temp (JSONArray a) { 
 		this.a=a;
 		max=0;
 		min=0;
@@ -23,28 +23,34 @@ public class Tot_Filter_temp {
 	}
 	
 	public void tot_temp (int period) {
-		JSONArray obj= new JSONArray();
-		obj=(JSONArray) this.a.get(this.a.size()-1);
-		M = new Max_Filter_temp (obj);
-		m= new Min_Filter_temp (obj);
+		Date_Filter D = new Date_Filter ();
+		JSONObject obj= new JSONObject();
+		obj=(JSONObject) this.a.get(this.a.size()-1);
+		M = new Max_Filter_temp ( (JSONArray) obj.get("citta"));
+		m= new Min_Filter_temp ((JSONArray) obj.get("citta"));
 		max = M.getMax();
 		citta_max=M.getCitta();
+		int time[] = m.getDate();
 		min= m.getMin();
 		citta_min=m.getCitta();
 			
 		for (int i=this.a.size()-2; i>this.a.size()-period; i--) {
 				
-			obj= (JSONArray) this.a.get(i);
-			m = new Min_Filter_temp (obj);
-			M = new Max_Filter_temp (obj);
-			if (max < M.getMax()) {
-				max = M.getMax();
-				citta_max = M.getCitta();
+			obj= (JSONObject) this.a.get(i);
+			m = new Min_Filter_temp ((JSONArray) obj.get("citta"));
+			M = new Max_Filter_temp ((JSONArray) obj.get("citta"));
+			
+			if (D.check(time, m.getDate())) {
+				if (max < M.getMax()) {
+					max = M.getMax();
+					citta_max = M.getCitta();
+				}
+				if (min > m.getMin()) {
+					min = m.getMin();
+					citta_min = m.getCitta();
+				}
 			}
-			if (min > m.getMin()) {
-				min = m.getMin();
-				citta_min = m.getCitta();
-			}	
+			time=m.getDate();
 		}
 		JSONObject ar = new JSONObject();
 		JSONObject ar2 = new JSONObject();
