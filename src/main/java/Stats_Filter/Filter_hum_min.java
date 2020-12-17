@@ -3,22 +3,23 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Min_Filter_hum {
+public class Filter_hum_min {
 	private JSONArray meta = new JSONArray();
 	private JSONObject Appoggio = new JSONObject();
 	
 	private int Min;
 	private String City;
 	
-	public Min_Filter_hum(JSONArray A) {
+	public Filter_hum_min() {}
+	
+	public void hum_min(JSONArray A){
+		
 		this.meta = A;
 		Appoggio.put("Const", meta.get(meta.size()-1));
-	}
-	
-	public void temp_min(){
 		
 		Min = (int) Appoggio.get("Temperatura percepita");
 		City = (String) Appoggio.get("Citta");
+		
 		
 		for (int i=meta.size()-1; i>0 ;i--) {
 			JSONObject o=new JSONObject();
@@ -26,6 +27,7 @@ public class Min_Filter_hum {
 			if ( Min > (int) o.get("Umidità")) {
 				Min = (int)o.get("Umidità");
 				City = (String)o.get("Citta");
+				
 			}
 		}
 	
