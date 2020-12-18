@@ -7,9 +7,9 @@ public class Filter_hum_min {
 	private JSONArray meta = new JSONArray();
 	private JSONObject Appoggio = new JSONObject();
 	
-	private int Min;
+	private long Min;
 	private String City;
-	private int date[];
+	private int date[]= {0,0,0};
 	
 	public Filter_hum_min() {}
 	
@@ -18,25 +18,37 @@ public class Filter_hum_min {
 		this.meta = (JSONArray) A;
 		
 		Appoggio= (JSONObject)meta.get(meta.size()-1);
-		System.out.println(Appoggio);
-		Min = (int) Appoggio.get("Temperatura percepita");
+		Min = (long) Appoggio.get("Umidita");
 		City = (String) Appoggio.get("Citta");
+		
+		
 		date[0] = (int) Appoggio.get("giorno");
 		date[1] = (int) Appoggio.get("mese");
-		date[2] = (int) Appoggio.get("anno");
+		date[2] = (int) Appoggio.get("anno"); 
 		
-		for (int i=meta.size()-2; i>0 ;i--) {
+		for (int i=(meta.size()-2); i>0 ;i--) {
 			JSONObject o=new JSONObject();
-			o.put("Const",meta.get(i));
-			if ( Min > (int) o.get("Umidità")) {
-				Min = (int)o.get("Umidità");
+			o = (JSONObject)meta.get(i);
+			if ( Min >= (long) o.get("Umidita")) {
+				Min = (long)o.get("Umidita");
 				City = (String) o.get("Citta");
 				
 				}
 		}
+		System.out.println(Min);
+		System.out.println(City);
 	}
+	catch (NullPointerException e) {
+			System.out.println(e);
+			System.out.println("errore null pointer Filter_hum_min");
+		}
+	catch (ClassCastException e) {
+			System.out.println(e);
+			System.out.println("errore class cast Filter_hum_min");
+		}
 	catch (Exception e) {
-	System.out.println(e);
+		System.out.println(e);
+		System.out.println("errore generale Filter_hum_min");
 	}
 		
 	}
@@ -45,7 +57,7 @@ public class Filter_hum_min {
 		return City;
 	}
 	
-	public int getMin () {
+	public long getMin () {
 		return Min;
 	}
 	

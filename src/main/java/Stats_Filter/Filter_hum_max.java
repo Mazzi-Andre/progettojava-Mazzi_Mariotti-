@@ -7,32 +7,45 @@ public class Filter_hum_max {
 	private JSONArray meta = new JSONArray();
 	private JSONObject Appoggio = new JSONObject();
 	
-	private int Max;
+	private long Max;
 	private String City;
-	private int giorno;
-	private int mese;
-	private int anno;
 	
 	public Filter_hum_max() {}
 	
 	public void hum_max(JSONArray A){
+		try {
 		this.meta = (JSONArray) A;
-		Appoggio.put("Const", meta.get(meta.size()-1));
+			
+		Appoggio= (JSONObject)meta.get(meta.size()-1);
 		
-		Max = (int) Appoggio.get("Temperatura percepita");
+		Max = (long) Appoggio.get("Umidita");
 		City = (String) Appoggio.get("Citta");
-		giorno=(int) Appoggio.get("giorno");
-		mese=(int) Appoggio.get("mese");
-		anno=(int) Appoggio.get("anno");
+
 		
 		for (int i=meta.size()-2; i>0 ; i--) {
 			JSONObject o=new JSONObject();
-			o.put("Const",meta.get(i));
-			if ( Max < (int) o.get("Umidità")) {
-				Max = (int)o.get("Umidità");
+			o = (JSONObject)meta.get(i);
+			if ( Max <= (long) o.get("Umidita")) {
+				Max = (long)o.get("Umidita");
 				City = (String)o.get("Citta");
 			}
 		}
+		System.out.println(Max);
+		System.out.println(City);
+		
+	}
+	catch (NullPointerException e) {
+			System.out.println(e);
+			System.out.println("errore null pointer Filter_hum_max");
+		}
+	catch (ClassCastException e) {
+			System.out.println(e);
+			System.out.println("errore class cast Filter_hum_max");
+		}
+	catch (Exception e) {
+		System.out.println(e);
+		System.out.println("errore generale Filter_hum_max");
+	}
 	
 	}
 	
@@ -40,7 +53,7 @@ public class Filter_hum_max {
 		return City;
 	}
 	
-	public int getMax () {
+	public long getMax () {
 		return Max;
 	}
 }

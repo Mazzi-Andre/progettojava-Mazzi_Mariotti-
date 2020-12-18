@@ -74,7 +74,7 @@ public class JSONFile_Mgmt extends API_allCities{
 				JSONObject obj_weather=new JSONObject();
 				obj_weather.put("Citta", cities_names.get(i));
 				obj_weather.put("Temperatura percepita", obj_main.get("feels_like"));
-				obj_weather.put("Umidità", obj_main.get("humidity"));
+				obj_weather.put("Umidita", obj_main.get("humidity"));
 				obj_weather.put("giorno", d.getDay());
 				obj_weather.put("mese", d.getMonth());
 				obj_weather.put("anno", d.getYear());

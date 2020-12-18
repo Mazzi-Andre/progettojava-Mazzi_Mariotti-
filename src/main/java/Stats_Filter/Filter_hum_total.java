@@ -11,8 +11,8 @@ public class Filter_hum_total {
 	private JSONArray tot_hum = new JSONArray();
 	
 	private JSONObject Appoggio = new JSONObject();
-	private int min;
-	private int max;
+	private long min;
+	private long max;
 	private String Cmin;
 	private String Cmax;
 	
@@ -68,9 +68,15 @@ public class Filter_hum_total {
 		ar2.put("Umidità minima", min);
 		tot_hum.add(ar);
 		tot_hum.add(ar2);
-	}catch (Exception e) {
+		
+	}catch (NullPointerException e) {
+		System.out.println(e);
+		System.out.println("errore null pointer Filter_hum_tot");
+	}
+		catch (Exception e) {
 		System.out.println(e);
 	}
+	
 	}
 	
 	//funzione get JASONArray
