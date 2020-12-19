@@ -53,4 +53,7 @@ public class Controller {
 		return hum.reader(period);
 	}
 	
+	@PostMapping("/stat")
+	public 
+	
 }

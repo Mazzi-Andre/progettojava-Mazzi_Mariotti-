@@ -1,7 +1,9 @@
-package Stats_Filter;
+package Stats_Filter.hum;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import Stats_Filter.Date_Filter;
 
 public class Filter_hum_total {
 	
@@ -9,10 +11,10 @@ public class Filter_hum_total {
 	private JSONArray tot_temp = new JSONArray();
 	private Filter_hum_max M;
 	private Filter_hum_min m;
-	private long max;
+	private double max;
 	private String citta_max;
 	private String citta_min;
-	private long min;
+	private double min;
 	
 	public Filter_hum_total (JSONArray a) { //= metafile
 		this.a=a;
