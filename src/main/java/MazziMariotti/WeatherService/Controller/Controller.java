@@ -50,10 +50,26 @@ public class Controller {
 		/*Temp_Stats temp = new Temp_Stats (stats.getArray());
 		return temp.reader(period);*/
 		Hum_Stats hum = new Hum_Stats (stats.getArray());
-		return hum.reader(period);
+		return hum.reader_hum(period);
 	}
 	
-	@PostMapping("/stat")
-	public 
+	@PostMapping("/body")
+	public JSONArray body (@RequestBody Body_prova body ) {
+		JSONFile_Mgmt stats =new JSONFile_Mgmt();
+		stats.JsonFile_reader();
+		if (body.isHum()) {
+			Hum_Stats hum = new Hum_Stats (stats.getArray());
+			return hum.reader_hum(body.getPeriod());
+		}
+		if (body.isTemp()) {
+			Temp_Stats temp = new Temp_Stats (stats.getArray());
+			return temp.reader_temp(body.getPeriod());
+		}/*
+		if (body.isHum() && body.isTemp()) {
+			Hum_Stats hum = new Hum_Stats (stats.getArray());
+			return hum.reader_hum(body.getPeriod());
+		}*/
+		else return body.getA();
+		}
 	
 }

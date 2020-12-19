@@ -32,14 +32,6 @@ public class Temp_Stats extends Filter{
 		return tot.getTot_temp();
 	
 	}
-
-	public boolean getvoce1() {
-		return voce1;
-	}
-	
-	public boolean getvoce2() {
-		return voce2;
-	}
 	
 	
 }
