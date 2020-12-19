@@ -47,10 +47,10 @@ public class Controller {
 	public JSONArray Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		Temp_Stats temp = new Temp_Stats (stats.getArray());
-		return temp.reader(period);
-		/*Hum_Stats hum = new Hum_Stats (stats.getArray());
-		return hum.reader(period);*/
+		/*Temp_Stats temp = new Temp_Stats (stats.getArray());
+		return temp.reader(period);*/
+		Hum_Stats hum = new Hum_Stats (stats.getArray());
+		return hum.reader(period);
 	}
 	
 }
