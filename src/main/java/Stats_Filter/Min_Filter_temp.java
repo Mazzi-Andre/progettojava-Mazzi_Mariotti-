@@ -6,31 +6,25 @@ import org.json.simple.JSONObject;
 public class Min_Filter_temp {
 	
 	private JSONArray meta = new JSONArray();
-	private JSONObject Appoggio = new JSONObject();
-	private int date[];
+	private int date[]= new int [3];
 	
 	private double Min;
 	private String City;
 	
-	public Min_Filter_temp(JSONArray A) {
-		this.meta = A;
-		Appoggio.put("Const", meta.get(meta.size()-1));
-	}
-	
-	public void temp_min(){
-		
-		Min = (double) Appoggio.get("Temperatura percepita");
-		City = (String) Appoggio.get("Citta");
-		date[0] = (int) Appoggio.get("giorno");
-		date[1] = (int) Appoggio.get("mese");
-		date[2] = (int) Appoggio.get("anno");
-		
-		for (int i=meta.size()-1; i>0 ;i--) {
-			JSONObject o=new JSONObject();
-			o.put("Const",meta.get(i));
-			if ( Min > (double) o.get("Temperatura percepita")) {
-				Min = (double)o.get("Temperatura percepita");
-				City = (String)o.get("Citta");
+	public Min_Filter_temp( JSONArray A ) {
+		this.meta=A;
+		JSONObject o = new JSONObject();
+		o= (JSONObject) this.meta.get(0);
+		Min= (double) o.get("Temperatura percepita");
+		City= (String) o.get("Citta");
+		date[0]= (int) o.get("anno");
+		date[1]= (int) o.get("mese");
+		date[2]= (int) o.get("giorno");
+		for (int i=1; i<this.meta.size(); i++) {
+			o=(JSONObject) this.meta.get(i);
+			if (Min > (double) o.get("Temperatura percepita")) {
+				Min=(double) o.get("Temperatura percepita");
+				City= (String) o.get("Citta");
 			}
 		}
 	}

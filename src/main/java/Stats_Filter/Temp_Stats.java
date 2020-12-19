@@ -12,7 +12,7 @@ public class Temp_Stats extends Filter{
 	}
 	
 	public JSONArray reader(int period) {
-		
+		System.out.println(Stats_Array.size());
 		Tot_Filter_temp tot = new Tot_Filter_temp (Stats_Array);
 		tot.tot_temp(period);
 		return tot.getTot_temp();

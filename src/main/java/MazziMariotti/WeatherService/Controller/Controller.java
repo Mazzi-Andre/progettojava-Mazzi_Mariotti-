@@ -43,14 +43,14 @@ public class Controller {
 	 * @return Oggetto della statistica						//da rivedere!
 	 */
 	
-	@GetMapping("/stats")
+	@GetMapping("/stats")  //Modificare con richiesta body per scegliere quali valori visualizzare del periodo inserito
 	public JSONArray Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		Hum_Stats hum = new Hum_Stats (stats.getArray());
 		Temp_Stats temp = new Temp_Stats (stats.getArray());
-		return hum.reader(period);
-		//return temp.reader(period);
+		return temp.reader(period);
+		/*Hum_Stats hum = new Hum_Stats (stats.getArray());
+		return hum.reader(period);*/
 	}
 	
 }
