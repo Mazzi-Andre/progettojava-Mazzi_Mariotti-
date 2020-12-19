@@ -12,7 +12,7 @@ public class Hum_Stats extends Filter {
 		
 		Filter_hum_total tot = new Filter_hum_total ();
 		//System.out.println(Stats_Array);
-		tot.hum(Stats_Array, period);
+		tot.hum_min(Stats_Array, period);
 		return tot.getTot_hum();
 	}
 }

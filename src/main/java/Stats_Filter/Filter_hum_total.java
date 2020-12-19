@@ -16,20 +16,25 @@ public class Filter_hum_total {
 	private String Cmin;
 	private String Cmax;
 	
+	private int prova_val=1;
+	
 	//Costruttore
 	public Filter_hum_total () {}
 	
-	//funzione di filtraggio
-	public void hum( JSONArray A, int period) {			
-		
+	//funzione di filtraggio del minimo
+	public void hum_min( JSONArray A, int period) {
+		try {
+			
 		this.meta=(JSONArray) A;
+		System.out.println(this.meta.size());
 		Date_Filter date = new Date_Filter ();
 		Appoggio = (JSONObject) this.meta.get(meta.size()-1);
 		JSONArray a= new JSONArray();
-		a=(JSONArray) Appoggio.get("citta");
+		a=(JSONArray) Appoggio.get("citta");  //Appoggio.get("citta") == a  sono la stessa cosa, ma servono per passare da obj a array 
+		System.out.println("ciao?" + prova_val++);
+		System.out.println(a);
 		Fmin.hum_min(a);
 		Fmax.hum_max(a);
-		
 		
 		min = Fmin.getMin();
 		Cmin =Fmin.getCitta();
@@ -41,8 +46,12 @@ public class Filter_hum_total {
 			
 			
 				Appoggio = (JSONObject) this.meta.get(i);
-				Fmin.hum_min((JSONArray) Appoggio.get("Citta"));
-				Fmax.hum_max((JSONArray) Appoggio.get("Citta"));
+				
+				JSONArray b= new JSONArray();
+				b=(JSONArray) Appoggio.get("citta");
+				
+				Fmin.hum_min((JSONArray) b);
+				Fmax.hum_max((JSONArray) b);
 				if (date.check(time, Fmin.getDate())) {
 				if (max < Fmax.getMax()) {
 					max = Fmax.getMax();
@@ -64,8 +73,76 @@ public class Filter_hum_total {
 		ar2.put("Umidità minima", min);
 		tot_hum.add(ar);
 		tot_hum.add(ar2);
+		
+	}catch (NullPointerException e) {
+		System.out.println(e);
+		System.out.println("errore null pointer Filter_hum_tot");
+	}
+		catch (Exception e) {
+		System.out.println(e);
+	}
 	
 	}
+	
+	//funzione di filtraggio del massimo
+		public void hum_max( JSONArray A, int period) {
+			try {
+				
+			
+			this.meta=(JSONArray) A;
+			System.out.println(this.meta.size());
+			Date_Filter date = new Date_Filter ();
+			Appoggio = (JSONObject) this.meta.get(meta.size()-1);
+			JSONArray a= new JSONArray();
+			a=(JSONArray) Appoggio.get("citta");
+			System.out.println(Appoggio.get("citta"));
+			Fmin.hum_min(a);
+			Fmax.hum_max(a);
+			
+			
+			min = Fmin.getMin();
+			Cmin =Fmin.getCitta();
+			max= Fmax.getMax();
+			Cmax = Fmax.getCitta();
+			int time[]=Fmin.getDate();
+			
+			for (int i=meta.size()-2; i > (meta.size()-period) ;i--) {
+				
+				
+					Appoggio = (JSONObject) this.meta.get(i);
+					Fmin.hum_min((JSONArray) Appoggio.get("Citta"));
+					Fmax.hum_max((JSONArray) Appoggio.get("Citta"));
+					if (date.check(time, Fmin.getDate())) {
+					if (max < Fmax.getMax()) {
+						max = Fmax.getMax();
+						Cmax = Fmax.getCitta();
+					}
+					if (min > Fmin.getMin()) {
+						min = Fmin.getMin();
+						Cmin = Fmin.getCitta();
+					}
+					
+				}
+				time=Fmin.getDate();
+			}
+			JSONObject ar = new JSONObject();
+			JSONObject ar2 = new JSONObject();
+			ar.put("Citta", Cmax);
+			ar.put("Umidità massima", max);
+			ar2.put("Citta", Cmin);
+			ar2.put("Umidità minima", min);
+			tot_hum.add(ar);
+			tot_hum.add(ar2);
+			
+		}catch (NullPointerException e) {
+			System.out.println(e);
+			System.out.println("errore null pointer Filter_hum_tot");
+		}
+			catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		}
 	
 	//funzione get JASONArray
 	public JSONArray getTot_hum () {
