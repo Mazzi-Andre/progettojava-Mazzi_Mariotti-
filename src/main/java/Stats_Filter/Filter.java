@@ -18,8 +18,7 @@ public abstract class Filter {
 		min_city=null;
 	}
 	
-	public abstract JSONArray reader_temp(int period);
-	public abstract JSONArray reader_hum(int period);
+	public abstract JSONArray reader(int period);
 	
 	
 }
