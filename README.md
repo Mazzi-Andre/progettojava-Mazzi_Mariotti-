@@ -1,4 +1,4 @@
-# OPENWEATHER: Servizio Metereologico
+# OPENWEATHER: Servizio Meteorologico
 
 ### Descrizione
 Il progetto relizzato è un serivizio metereologico sulle 10 città Americane più importanti:
