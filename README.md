@@ -27,7 +27,7 @@ Per l'acquisizione dei dati di cui necessitavamo riguardanti le temperature e le
 Il Data-Set è rappresentato da un file formato Json, nella quale sono state salvate le informazioni relative ai giorni passati. Inoltre tramite una funzionalità di autosalvataggio, il file verrà caricato nuovamente di specifiche aggiornate ogni 2 ore.
 > **Nota**: i dati sono stati necessareiamente salvati per mancanza di API che restituissero informazioni passate.
 
-### Request 
+## Request 
 
 La seguente tabella rappresenta le possibili chiamate GET o POST che è possibile richiamare tramite un API testing:
 
@@ -45,8 +45,11 @@ In particolare le funzioni filtro possibili sono:
 |temp            |Boolean                        |parametro per la richiesta della temperatura |
 |period          |Intger                         |intervallo di tempo della statistica       |
 
-
-## Softwere utilizzati
+### Controlli
+* **Controllo GET** `http://localhost:8080/metadati`:
+* **Controllo GET** `http://localhost:8080/citta?city="nome"`:
+* **Controllo POST** `http://localhost:8080/stats`:
+## Software
 
 * [Eclipse](https://www.eclipse.org/) - ambiente di sviluppo integrato
 * [Spring Boot](https://spring.io/projects/spring-boot) - framework per  sviluppo applicazioni Java
