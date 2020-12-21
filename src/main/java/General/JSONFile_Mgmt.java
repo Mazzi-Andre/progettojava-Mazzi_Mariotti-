@@ -20,8 +20,6 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 import Date_test.Date;
-import Stats_Filter.Hum_Stats;
-import Stats_Filter.Temp_Stats;
 
 	/**
 	 * Classe di gestione lettura e scrittura file json.
@@ -30,6 +28,7 @@ import Stats_Filter.Temp_Stats;
 	 */
 
 public class JSONFile_Mgmt extends API_allCities{
+	
 	private JSONArray meta_file = new JSONArray();
 	
 	public JSONFile_Mgmt () {
@@ -42,8 +41,10 @@ public class JSONFile_Mgmt extends API_allCities{
 	 */
 	
 	public void Download_allCities () {
+		
 		Date d= new Date();
 		JSONArray Cities = new JSONArray ();
+		
 		try {	
 		
 			for (int i=0; i<urls.size(); i++) {
@@ -87,8 +88,6 @@ public class JSONFile_Mgmt extends API_allCities{
 				e.printStackTrace();
 		} catch (IOException e ) {
 				e.printStackTrace();
-				//It's a very simple, but very useful tool for diagnosing an exceptions.
-				//It tells you what happened and where in the code this happened.
 		} catch (ParseException e) {
 				e.printStackTrace();
 		} catch (Exception e) {
@@ -101,16 +100,20 @@ public class JSONFile_Mgmt extends API_allCities{
 	 */
 	
 	public void JsonFile_save () {
+		
 		try {
-			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File4.json",true))) {
+			
+			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("Data-set.json",true))) {
 				protected void writeStreamHeader() throws IOException {
 					
 					reset();
 				}
 				
 			};
+			
 		    file_output.writeObject(Cities_time);
-			file_output.close();			
+			file_output.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -124,10 +127,14 @@ public class JSONFile_Mgmt extends API_allCities{
 		
 		try { 
 			
-		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File4.json")));
-		    	while(true) {
-		    		meta_file.add((JSONObject) file_input.readObject());
-		    	}
+		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("Data-set.json")));
+		    	
+		    while(true) {
+		    		
+		    	meta_file.add((JSONObject) file_input.readObject());
+		    	
+		    }
+		    	
 		} catch(EOFException e) {
 		       System.out.println("File finito");
 		} catch (IOException e) {
@@ -140,8 +147,7 @@ public class JSONFile_Mgmt extends API_allCities{
 	
 	/**
 	 * @return JSONArray letto dal file.
-	 */
-	
+	 */	
 	
 	public JSONArray getArray () {
 		return meta_file;

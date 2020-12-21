@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 	 * @author Manuel Mariotti
 	 * @author Andrè Mazzi
 	 */
+
 @SpringBootApplication
 public class WeatherServiceApplication {
 	
@@ -32,6 +33,7 @@ public class WeatherServiceApplication {
 	/**
 	 * Metodo per l'avvio programmato dell'autosave dei dati.
 	 */
+	
 	@Scheduled(fixedRate = 7200000)
 	void someone() {
 		JSONFile_Mgmt meta_file= new JSONFile_Mgmt ();

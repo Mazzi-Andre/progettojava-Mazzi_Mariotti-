@@ -1,4 +1,4 @@
-package Stats_Filter;
+ package Stats_Filter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,7 +10,7 @@ public class Tot_Filter_temp {
 	
 	
 	public Tot_Filter_temp ( JSONArray a ) { //= metafile
-		meta=a;
+		meta = a;
 	}
 	
 	public void tot_temp (int period) {
@@ -37,7 +37,9 @@ public class Tot_Filter_temp {
 		
 		int i = meta.size()-2;
 		int comp = 1;
+		
 		do {
+			
 			obj = (JSONObject) meta.get(i);
 			m = new Min_Filter_temp ((JSONArray) obj.get("citta"));
 			M = new Max_Filter_temp ((JSONArray) obj.get("citta"));
@@ -51,14 +53,16 @@ public class Tot_Filter_temp {
 					min = m.getMin();
 					citta_min = m.getCitta();
 				}
+				
 				comp++;
+				
 				time[0] = m.getDate()[0];
 				time[1] = m.getDate()[1];
 				time[2] = m.getDate()[2];
 			}
 			i--;			
 			
-		} while ( comp < period-1 );
+		} while ( comp < period-1  || i<0 );
 	
 		JSONObject ar = new JSONObject();
 		JSONObject ar2 = new JSONObject();
@@ -73,8 +77,6 @@ public class Tot_Filter_temp {
 	
 	public JSONArray getTot_temp () {
 		return tot_temp;
-	}
-	
-	
+	}	
 	
 }

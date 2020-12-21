@@ -10,6 +10,7 @@ public class Max_Filter_temp {
 	private String citta;
 	
 	public Max_Filter_temp ( JSONArray a ) {
+		
 		position_meta=a;
 		JSONObject o = new JSONObject();
 		o = (JSONObject) position_meta.get(0);
@@ -17,10 +18,12 @@ public class Max_Filter_temp {
 		citta = (String) o.get("Citta");
 		
 		for (int i=1; i<a.size(); i++) {
+			
 			o=(JSONObject) position_meta.get(i);
 			if (max < (double) o.get("Temperatura percepita")) {
 				max = (double) o.get("Temperatura percepita");
 				citta= (String) o.get("Citta");
+				
 			}
 		}
 	}

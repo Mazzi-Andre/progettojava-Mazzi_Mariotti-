@@ -6,10 +6,7 @@ import org.json.simple.JSONObject;
 import General.JSONFile_Mgmt;
 
 public class Temp_Stats extends Filter{
-	
-	/*private boolean voce1;
-	private boolean voce2;*/
-	
+		
 	
 	public Temp_Stats(JSONArray a) { //che sarà metafile
 		super(a);
@@ -23,7 +20,5 @@ public class Temp_Stats extends Filter{
 		return tot.getTot_temp();
 	
 	}
-	
-
 	
 }

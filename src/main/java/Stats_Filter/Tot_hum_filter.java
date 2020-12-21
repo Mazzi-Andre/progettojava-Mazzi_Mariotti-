@@ -3,19 +3,19 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Filter_hum_total {
+public class Tot_hum_filter {
 	
 	private JSONArray meta = new JSONArray();
 	private JSONArray tot_hum = new JSONArray();
 	
-	public Filter_hum_total ( JSONArray a ) {
+	public Tot_hum_filter ( JSONArray a ) {
 		meta = a;
 	}
 	
 	public void hum_tot (int period) {
 		
-		Filter_hum_max M;
-		Filter_hum_min m;
+		Max_hum_filter M;
+		Min_hum_filter m;
 		
 		int time[] = new int [3];
 		
@@ -24,8 +24,8 @@ public class Filter_hum_total {
 		JSONObject obj= new JSONObject();
 		
 		obj=(JSONObject) meta.get(meta.size()-1);
-		M = new Filter_hum_max ( (JSONArray) obj.get("citta"));
-		m = new Filter_hum_min ((JSONArray) obj.get("citta"));
+		M = new Max_hum_filter ( (JSONArray) obj.get("citta"));
+		m = new Min_hum_filter ((JSONArray) obj.get("citta"));
 		long max = M.getMax();
 		String citta_max = M.getCitta();
 		long min = m.getMin();
@@ -37,10 +37,11 @@ public class Filter_hum_total {
 		
 		int i = meta.size()-2;
 		int comp = 1;
+		
 		do {
 			obj= (JSONObject) meta.get(i);
-			m = new Filter_hum_min ((JSONArray) obj.get("citta"));
-			M = new Filter_hum_max ((JSONArray) obj.get("citta"));
+			m = new Min_hum_filter ((JSONArray) obj.get("citta"));
+			M = new Max_hum_filter ((JSONArray) obj.get("citta"));
 			
 			if ( D.check(time, m.getDate()) ) {   //se sono diversi 
 				if (max < M.getMax()) {
@@ -60,7 +61,7 @@ public class Filter_hum_total {
 			}
 			i--;			
 			
-		} while ( comp < period-1 );
+		} while ( comp < period-1  || i<0 );
 	
 		JSONObject ar = new JSONObject();
 		JSONObject ar2 = new JSONObject();
