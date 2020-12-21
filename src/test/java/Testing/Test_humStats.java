@@ -28,8 +28,6 @@ public class Test_humStats extends TestCase {
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
 		s= new Hum_Stats(stats.getArray());
-		Filter_hum_total tot = new Filter_hum_total (stats.getArray());
-		tot.hum_tot(2);
 	}
 	
 	public void tearDown () {}
@@ -37,7 +35,6 @@ public class Test_humStats extends TestCase {
 	public void testReader () {	
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		s= new Hum_Stats(stats.getArray());
 		Filter_hum_total tot = new Filter_hum_total (stats.getArray());
 		tot.hum_tot(2);
 		assertEquals( s.reader(2) , tot.getTot_hum());

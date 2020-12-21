@@ -23,8 +23,6 @@ public class Test_tempStats extends TestCase {
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
 		s= new Temp_Stats(stats.getArray());
-		Tot_Filter_temp tot = new Tot_Filter_temp (stats.getArray());
-		tot.tot_temp(2);
 	}
 	
 	public void tearDown () {}
@@ -32,7 +30,6 @@ public class Test_tempStats extends TestCase {
 	public void testReader () {	
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		s= new Temp_Stats(stats.getArray());
 		Tot_Filter_temp tot = new Tot_Filter_temp (stats.getArray());
 		tot.tot_temp(2);
 		assertEquals( s.reader(2) , tot.getTot_temp());
