@@ -24,7 +24,7 @@ public class API_allCities {
 	
 	protected Vector <String> urls = new Vector <String> (); 
 	protected Vector <String> cities_names = new Vector <String> (); 
-	protected JSONObject Cities_time =new JSONObject();
+	protected JSONObject Cities_time = new JSONObject ();
 	
 	
 	public API_allCities () {
@@ -104,6 +104,8 @@ public class API_allCities {
 				//It tells you what happened and where in the code this happened.
 		} catch (ParseException e) {
 				e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

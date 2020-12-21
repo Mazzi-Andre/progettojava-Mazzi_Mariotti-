@@ -91,6 +91,8 @@ public class JSONFile_Mgmt extends API_allCities{
 				//It tells you what happened and where in the code this happened.
 		} catch (ParseException e) {
 				e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

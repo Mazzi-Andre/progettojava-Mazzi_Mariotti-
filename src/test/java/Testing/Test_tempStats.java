@@ -1,8 +1,4 @@
 package Testing;
-import java.io.EOFException;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import General.JSONFile_Mgmt;
 import Stats_Filter.Temp_Stats;

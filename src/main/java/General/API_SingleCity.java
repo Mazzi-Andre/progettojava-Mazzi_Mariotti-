@@ -93,6 +93,8 @@ public class API_SingleCity {
 		//It tells you what happened and where in the code this happened.
 		} catch (ParseException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
