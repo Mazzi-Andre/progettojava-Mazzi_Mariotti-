@@ -1,29 +1,32 @@
-package Stats_Filter.temp;
+package Stats_Filter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Min_Filter_temp {
+public class Filter_hum_min {
 	
-	private JSONArray meta = new JSONArray();
+	private JSONArray meta_position = new JSONArray();
 	private int date[]= new int [3];
 	
-	private double Min;
+	private long Min;
 	private String City;
 	
-	public Min_Filter_temp( JSONArray A ) {
-		this.meta=A;
+	public Filter_hum_min ( JSONArray A ) {
+		
+		meta_position = A;
 		JSONObject o = new JSONObject();
-		o= (JSONObject) this.meta.get(0);
-		Min= (double) o.get("Temperatura percepita");
+		o = (JSONObject) meta_position.get(0);
+		Min = (long) o.get("Umidita");
 		City= (String) o.get("Citta");
+		
 		date[0]= (int) o.get("anno");
 		date[1]= (int) o.get("mese");
 		date[2]= (int) o.get("giorno");
-		for (int i=1; i<this.meta.size(); i++) {
-			o=(JSONObject) this.meta.get(i);
-			if (Min > (double) o.get("Temperatura percepita")) {
-				Min=(double) o.get("Temperatura percepita");
+		
+		for (int i=1; i<meta_position.size(); i++) {
+			o = (JSONObject) meta_position.get(i);
+			if ( Min > (long) o.get("Umidita") ) {
+				Min =(long) o.get("Umidita"); 
 				City= (String) o.get("Citta");
 			}
 		}
@@ -33,7 +36,7 @@ public class Min_Filter_temp {
 		return City;
 	}
 	
-	public double getMin () {
+	public long getMin () {
 		return Min;
 	}
 	

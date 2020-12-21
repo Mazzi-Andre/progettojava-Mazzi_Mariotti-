@@ -19,9 +19,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+import Date_test.Date;
 import Stats_Filter.Hum_Stats;
 import Stats_Filter.Temp_Stats;
-import date_test.Date;
 
 	/**
 	 * Classe di gestione lettura e scrittura file json.
@@ -100,7 +100,7 @@ public class JSONFile_Mgmt extends API_allCities{
 	
 	public void JsonFile_save () {
 		try {
-			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File2.json",true))) {
+			ObjectOutputStream file_output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("File4.json",true))) {
 				protected void writeStreamHeader() throws IOException {
 					
 					reset();
@@ -122,13 +122,10 @@ public class JSONFile_Mgmt extends API_allCities{
 		
 		try { 
 			
-		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File2.json")));
-
-		    while(true) {
-		    	meta_file.add((JSONObject) file_input.readObject());
-		        
-		     }
-		    
+		    ObjectInputStream file_input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("File4.json")));
+		    	while(true) {
+		    		meta_file.add((JSONObject) file_input.readObject());
+		    	}
 		} catch(EOFException e) {
 		       System.out.println("File finito");
 		} catch (IOException e) {

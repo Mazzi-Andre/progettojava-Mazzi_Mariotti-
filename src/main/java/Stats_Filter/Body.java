@@ -3,7 +3,7 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Body_prova {
+public class Body {
 	
 	private int period;
 	private boolean hum;
@@ -11,7 +11,7 @@ public class Body_prova {
 	private JSONArray a = new JSONArray();
 	private JSONObject obj = new JSONObject();
 	
-	public Body_prova(boolean voce1,boolean voce2, int period) {
+	public Body(boolean voce1,boolean voce2, int period) {
 		this.hum= voce1;
 		this.temp= voce2;
 		this.period= period;

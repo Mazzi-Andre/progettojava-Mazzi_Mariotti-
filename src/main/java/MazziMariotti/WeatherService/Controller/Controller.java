@@ -1,5 +1,7 @@
 package MazziMariotti.WeatherService.Controller;
 
+import java.io.EOFException;
+
 import org.json.simple.JSONArray;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +13,7 @@ import Stats_Filter.*;
 	 * @author Manuel Mariotti
 	 * @author Andrè Mazzi
 	 */
+
 @RestController
 public class Controller {
 	
@@ -19,6 +22,7 @@ public class Controller {
 	 * @param city Nome dell città scelta
 	 * @return JSONObject dati della singola città.
 	 */
+	
 	@GetMapping("/citta")
 	public API_SingleCity Rest_SingleCity(@RequestParam(name= "city", defaultValue= "nessuna_citta") String city) { 
 		API_SingleCity single = new API_SingleCity();
@@ -41,6 +45,7 @@ public class Controller {
 	/**
 	 * Controller richiesta GET "/stats".
 	 * @return Oggetto della statistica						//da rivedere!
+	 * @throws EOFException 
 	 */
 	
 	
@@ -56,15 +61,15 @@ public class Controller {
 	}*/
 	
 	@PostMapping("/stats")
-	public JSONArray body (@RequestBody Body_prova body ) {
-		JSONFile_Mgmt stats =new JSONFile_Mgmt();
+	public JSONArray body (@RequestBody Body body ) throws EOFException {
+		JSONFile_Mgmt stats = new JSONFile_Mgmt();
 		stats.JsonFile_reader();
 		if (body.isHum() && body.isTemp()) {
 			Hum_Stats hum = new Hum_Stats (stats.getArray());
 			Temp_Stats temp = new Temp_Stats (stats.getArray());
 			JSONArray total = new JSONArray();
-			total.add(hum.reader(body.getPeriod()));
-			total.add(temp.reader(body.getPeriod()));
+			total.add( hum.reader(body.getPeriod()) );
+			total.add( temp.reader(body.getPeriod()) );
 			
 			return total;
 		}

@@ -1,4 +1,4 @@
-package date_test;
+package Date_test;
 
 import java.util.GregorianCalendar;
 	/**

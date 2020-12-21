@@ -4,7 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import General.JSONFile_Mgmt;
-import Stats_Filter.temp.Tot_Filter_temp;
 
 public class Temp_Stats extends Filter{
 	
@@ -17,7 +16,7 @@ public class Temp_Stats extends Filter{
 	}
 	
 	@Override
-	public JSONArray reader(int period) {
+	public JSONArray reader (int period) {
 		
 		Tot_Filter_temp tot = new Tot_Filter_temp (Stats_Array);
 		tot.tot_temp(period);

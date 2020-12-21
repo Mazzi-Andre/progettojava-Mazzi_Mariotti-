@@ -12,7 +12,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
-import date_test.Date;
+
+import Date_test.Date;
 
 	/**
 	 * Classe di gestione lettura tramite API openweather di tutte le città interessate.
