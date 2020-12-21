@@ -46,7 +46,7 @@ In particolare le funzioni filtro possibili sono:
 |period          |Intger                         |intervallo di tempo della statistica       |
 
 ### Controlli
-* **Controllo GET** `http://localhost:8080/metadati`:
+* **Controllo GET** `http://localhost:8080/metadati`: esegue la chimata al metodo **Rest_allCities**, il quale avvierà il metodo `Download_allCities` contenuto nella classe **API_allCities**, consentendo il download delle info da API e la successiva restituzione elaborata.
 * **Controllo GET** `http://localhost:8080/citta?city="nome"`:
 * **Controllo POST** `http://localhost:8080/stats`:
 ## Software
