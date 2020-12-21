@@ -18,7 +18,7 @@ La sua funzionalità è quella di acquisire dati riguardanti temperature e umidi
 Inoltre si ha la possibiltà di fare statistiche periodiche settimanali oppure personalizzabili.
 > **Nota**: il range personalizzabile rientra nell'arco dei sette giorni.
 
-### ?
+#### Specifiche
 Il progetto si basa sul concetto di Web Service, ovvero la possbilità tramite un client (es. Postman) di acquisire i dati richiesti attraverso un protocollo di comunicazione HTTP; 
 Questo tramite l'applicativo SpringBoot, un progetto del freamwork Spring, che consente tramite l'appoggio server di Tomcat di generare un'host locale (di default *localHost:8080* ).
 
