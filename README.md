@@ -1,7 +1,7 @@
 # OPENWEATHER: Servizio Meteorologico
 
 ### Descrizione
-Il progetto relizzato è un serivizio metereologico sulle 10 città Americane più importanti:
+Il progetto realizzato è un serivizio Meteorologico sulle 10 città Americane più importanti:
 * San Francisco
 * Las Vegas
 * Seattle
@@ -15,8 +15,8 @@ Il progetto relizzato è un serivizio metereologico sulle 10 città Americane pi
 
 La sua funzionalità è quella di riportare dati riguardanti temperature e umidità attuali di una singola città o di tutte le città sopra elencate.
 
-Inoltre si ha la possibiltà di restituire statistiche periodiche settimanali oppure personalizzabili.
-> **Nota**: il range personalizzabile rientra nell'arco dei sette giorni.
+Inoltre si ha la possibiltà di restituire statistiche periodiche settimanali o personalizzate.
+> **Nota**: il range personalizzato rientra nell'arco di sette giorni.
 
 #### Specifiche
 Il progetto si basa sul concetto di Web Service, ovvero la possbilità tramite un client (es. Postman) di acquisire i dati richiesti attraverso un protocollo di comunicazione HTTP; 
@@ -24,12 +24,12 @@ Questo tramite l'applicativo SpringBoot, un progetto del freamwork Spring, che c
 
 Per l'acquisizione dei dati di cui necessitavamo riguardanti le temperature e le umidità, abbiamo sfruttato le API OpenWeather (`api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}`) che mettevano a disposizione i valori giornalieri aggiornati.
 
-Il Data-Set è rappresentato da un file formato Json, nella quale sono state salvate le informazioni relative ai giorni passati. Inoltre tramite una funzionalità di autosalvataggio, il file verrà caricato nuovamente di specifiche aggiornate ogni 2 ore.
-> **Nota**: i dati sono stati necessareiamente salvati per mancanza di API che restituissero informazioni passate.
+Il Data-Set è rappresentato da un file formato Json nella quale sono state salvate le informazioni relative ai giorni passati. Inoltre tramite una funzionalità di autosalvataggio, il file verrà caricato nuovamente di valori aggiornati ogni 2 ore.
+> **Nota**: i dati sono stati necessariamente salvati per mancanza di API che restituissero informazioni di giorni passati.
 
 ## Request 
 
-La seguente tabella rappresenta le possibili chiamate GET o POST che è possibile richiamare tramite un API testing:
+La seguente tabella rappresenta le possibili chiamate GET o POST che è possibile effettuare tramite un API testing:
 
 |    TIPO        |ROTTA                          |DESCRIZIONE                                |
 |----------------|-------------------------------|-------------------------------------------|
