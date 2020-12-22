@@ -48,7 +48,11 @@ In particolare le funzioni filtro possibili sono:
 ### Controlli
 * **Controllo GET** `http://localhost:8080/metadati`: esegue la chimata al metodo **Rest_allCities**, il quale avvierà il metodo `Download_allCities` contenuto nella classe **API_allCities**, consentendo il download delle informazini da API di tutte le città e la successiva restituzione elaborata.
 * **Controllo GET** `http://localhost:8080/citta?city="nome"`: esegue la chimata al metodo **Rest_SingleCity**, il quale avvierà il metodo `Download_SingleCities` contenuto nella classe **API_SingleCities**, consentendo il download delle informazioni da API della singola città e la successiva restituzione elaborata.
-* **Controllo POST** `http://localhost:8080/stats`: tramite le funzionalità del body
+* **Controllo POST** `http://localhost:8080/stats`: tramite le funzionalità del body richiama le classi **Hum_stats** e **Temp_stats**, grazie alla quale avendo già letto il file Data-set tramite la classe *JSONFile_Mgmt*, che restituiscono i valori della statistica.
+
+### Grafici
+
+
 ## Software
 
 * [Eclipse](https://www.eclipse.org/) - ambiente di sviluppo integrato
