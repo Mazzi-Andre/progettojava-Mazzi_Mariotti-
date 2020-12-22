@@ -48,7 +48,6 @@ public class API_allCities {
 		cities_names.add("New Orleans");
 		cities_names.add("Boston");
 		cities_names.add("Washington");	
-		Cities_time = null;
 	}
 	
 	/**

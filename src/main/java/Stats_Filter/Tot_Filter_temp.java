@@ -9,7 +9,7 @@ public class Tot_Filter_temp {
 	private JSONArray tot_temp = new JSONArray();
 	
 	
-	public Tot_Filter_temp ( JSONArray a ) { //= metafile
+	public Tot_Filter_temp ( JSONArray a ) {
 		meta = a;
 	}
 	
@@ -44,7 +44,7 @@ public class Tot_Filter_temp {
 			m = new Min_Filter_temp ((JSONArray) obj.get("citta"));
 			M = new Max_Filter_temp ((JSONArray) obj.get("citta"));
 			
-			if ( D.check(time, m.getDate()) ) {   //se sono diversi 
+			if ( D.check(time, m.getDate()) ) {   
 				if (max < M.getMax()) {
 					max = M.getMax();
 					citta_max = M.getCitta();

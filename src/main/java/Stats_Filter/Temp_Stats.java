@@ -8,7 +8,7 @@ import General.JSONFile_Mgmt;
 public class Temp_Stats extends Filter{
 		
 	
-	public Temp_Stats(JSONArray a) { //che sarà metafile
+	public Temp_Stats(JSONArray a) {
 		super(a);
 	}
 	
