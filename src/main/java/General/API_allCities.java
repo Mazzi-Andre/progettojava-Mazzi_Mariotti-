@@ -48,6 +48,7 @@ public class API_allCities {
 		cities_names.add("New Orleans");
 		cities_names.add("Boston");
 		cities_names.add("Washington");	
+		Cities_time = null;
 	}
 	
 	/**
@@ -56,9 +57,11 @@ public class API_allCities {
 	 */
 	
 	public void Download_allCities () {
+		
 		String current_date;
 		Date d= new Date();
 		JSONArray Cities = new JSONArray ();
+		
 		try {	
 		
 			for (int i=0; i<urls.size(); i++) {
@@ -100,20 +103,18 @@ public class API_allCities {
 				e.printStackTrace();
 		} catch (IOException e ) {
 				e.printStackTrace();
-				//It's a very simple, but very useful tool for diagnosing an exceptions.
-				//It tells you what happened and where in the code this happened.
 		} catch (ParseException e) {
 				e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 
 	/**
 	 * @return Il JSONObject Cities_time contenenete informazioni su temperatura percepita
 	 * e umidità di ogni città interessata.
 	 */
+	
 	public JSONObject getValori () {
 		return Cities_time;
 	}

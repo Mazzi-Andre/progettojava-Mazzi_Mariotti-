@@ -3,7 +3,7 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Filter_hum_min {
+public class Min_hum_filter {
 	
 	private JSONArray meta_position = new JSONArray();
 	private int date[]= new int [3];
@@ -11,7 +11,7 @@ public class Filter_hum_min {
 	private long Min;
 	private String City;
 	
-	public Filter_hum_min ( JSONArray A ) {
+	public Min_hum_filter ( JSONArray A ) {
 		
 		meta_position = A;
 		JSONObject o = new JSONObject();
@@ -24,10 +24,12 @@ public class Filter_hum_min {
 		date[2]= (int) o.get("giorno");
 		
 		for (int i=1; i<meta_position.size(); i++) {
+			
 			o = (JSONObject) meta_position.get(i);
 			if ( Min > (long) o.get("Umidita") ) {
 				Min =(long) o.get("Umidita"); 
 				City= (String) o.get("Citta");
+				
 			}
 		}
 	}

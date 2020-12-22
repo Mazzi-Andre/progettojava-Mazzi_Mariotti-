@@ -48,40 +48,38 @@ public class Controller {
 	 * @throws EOFException 
 	 */
 	
-	
-	/*
-	@GetMapping("/stats")  //Modificare con richiesta body per scegliere quali valori visualizzare del periodo inserito
-	public JSONArray Rest_Statistics (@RequestParam(name= "period", defaultValue= "nessuna_periodo") int period) { 
-		JSONFile_Mgmt stats =new JSONFile_Mgmt();
-		stats.JsonFile_reader();
-		/*Temp_Stats temp = new Temp_Stats (stats.getArray());
-		return temp.reader(period);*/
-		/*Hum_Stats hum = new Hum_Stats (stats.getArray());
-		return hum.reader_hum(period);
-	}*/
-	
 	@PostMapping("/stats")
-	public JSONArray body (@RequestBody Body body ) throws EOFException {
+	public JSONArray body ( @RequestBody Body body ) {
 		JSONFile_Mgmt stats = new JSONFile_Mgmt();
 		stats.JsonFile_reader();
 		if (body.isHum() && body.isTemp()) {
+			
 			Hum_Stats hum = new Hum_Stats (stats.getArray());
 			Temp_Stats temp = new Temp_Stats (stats.getArray());
 			JSONArray total = new JSONArray();
+			
 			total.add( hum.reader(body.getPeriod()) );
 			total.add( temp.reader(body.getPeriod()) );
 			
 			return total;
+			
 		}
+		
 		if (body.isHum()) {
+			
 			Hum_Stats hum = new Hum_Stats (stats.getArray());
 			return hum.reader(body.getPeriod());
+			
 		}
+		
 		if (body.isTemp()) {
+			
 			Temp_Stats temp = new Temp_Stats (stats.getArray());
 			return temp.reader(body.getPeriod());
+			
 		}
+		
 		else return body.getA();
-		}
-	
+		
+		}	
 }

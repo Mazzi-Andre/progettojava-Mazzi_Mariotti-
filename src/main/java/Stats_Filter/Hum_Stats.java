@@ -2,8 +2,6 @@ package Stats_Filter;
 
 import org.json.simple.JSONArray;
 
-//import Filter_hum.Filter_hum_total;
-
 public class Hum_Stats extends Filter {
 	
 	public Hum_Stats(JSONArray a) {
@@ -13,11 +11,10 @@ public class Hum_Stats extends Filter {
 	@Override
 	public JSONArray reader(int period) {
 		
-		Filter_hum_total tot = new Filter_hum_total (Stats_Array);
+		Tot_hum_filter tot = new Tot_hum_filter (Stats_Array);
 		tot.hum_tot (period);
 		return tot.getTot_hum();
 		
-	}
-	
+	}	
 	
 }

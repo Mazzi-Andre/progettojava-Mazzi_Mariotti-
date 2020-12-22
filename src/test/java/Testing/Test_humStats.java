@@ -4,7 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import General.JSONFile_Mgmt;
-import Stats_Filter.Filter_hum_total;
+import Stats_Filter.Tot_hum_filter;
 import Stats_Filter.Hum_Stats;
 import Stats_Filter.Temp_Stats;
 import Stats_Filter.Tot_Filter_temp;
@@ -35,7 +35,7 @@ public class Test_humStats extends TestCase {
 	public void testReader () {	
 		JSONFile_Mgmt stats =new JSONFile_Mgmt();
 		stats.JsonFile_reader();
-		Filter_hum_total tot = new Filter_hum_total (stats.getArray());
+		Tot_hum_filter tot = new Tot_hum_filter (stats.getArray());
 		tot.hum_tot(2);
 		assertEquals( s.reader(2) , tot.getTot_hum());
 	}
