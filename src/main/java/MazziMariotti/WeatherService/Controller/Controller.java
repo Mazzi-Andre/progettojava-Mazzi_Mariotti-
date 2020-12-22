@@ -43,9 +43,8 @@ public class Controller {
 	}
 	
 	/**
-	 * Controller richiesta GET "/stats".
-	 * @return Oggetto della statistica						//da rivedere!
-	 * @throws EOFException 
+	 * Controller richiesta POST "/stats".
+	 * @return Oggetto della statistica	
 	 */
 	
 	@PostMapping("/stats")

@@ -120,7 +120,7 @@ public class JSONFile_Mgmt extends API_allCities{
 	}
 	
 	/**
-	 * Metodo per la lettura del file .json     //da mettere nome file
+	 * Metodo per la lettura del file Data-set.json 
 	 */
 	
 	public void JsonFile_reader () {

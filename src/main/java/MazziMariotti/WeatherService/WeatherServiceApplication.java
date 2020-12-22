@@ -47,10 +47,10 @@ public class WeatherServiceApplication {
 	 *
 	 */
 
-@Component
-@Configuration
-@EnableScheduling
-@ConditionalOnProperty(name="scheduling.enables", matchIfMissing=true)
-class SchedulingCOnfiguration {
+	@Component
+	@Configuration
+	@EnableScheduling
+	@ConditionalOnProperty(name="scheduling.enables", matchIfMissing=true)
+	class SchedulingCOnfiguration {
 	
-}
+	}

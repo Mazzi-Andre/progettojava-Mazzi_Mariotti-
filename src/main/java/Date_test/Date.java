@@ -11,7 +11,7 @@ public class Date {
 	private GregorianCalendar Current_date=new GregorianCalendar();
 	
 	private int Year = Current_date.get(GregorianCalendar.YEAR);
-	private int Month = Current_date.get(GregorianCalendar.MONTH) + 1; //i mesi partono da 0
+	private int Month = Current_date.get(GregorianCalendar.MONTH) + 1; 
 	private int Day = Current_date.get(GregorianCalendar.DATE);
 	
 	public Date() {

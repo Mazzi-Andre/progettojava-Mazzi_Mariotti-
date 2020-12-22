@@ -43,7 +43,7 @@ public class Tot_hum_filter {
 			m = new Min_hum_filter ((JSONArray) obj.get("citta"));
 			M = new Max_hum_filter ((JSONArray) obj.get("citta"));
 			
-			if ( D.check(time, m.getDate()) ) {   //se sono diversi 
+			if ( D.check(time, m.getDate()) ) {  
 				if (max < M.getMax()) {
 					max = M.getMax();
 					citta_max = M.getCitta();
