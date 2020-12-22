@@ -60,7 +60,7 @@ In particolare le funzioni filtro possibili sono:
 * **Diagramma delle classi**
 ![Uml_class](https://user-images.githubusercontent.com/74972537/102882038-0cee1700-444e-11eb-9284-cacc8a59378e.jpg)
 
-> **Nota**: il diagramma delle classi non risulta aggiornato al codice del progetto finale per il fatto che le modifiche sono state apportate per convenienze progettuali al livello di programmazione, quindi il suo aggiornamento risultava essere contro il concetto di stesura diagramma con conseguente stesura codice.
+> **Nota**: il diagramma delle classi non risulta aggiornato al codice del progetto finale per il fatto che le modifiche sono state apportate per convenienze progettuali al livello di programmazione, quindi il suo aggiornamento risultava essere contro il concetto di stesura del diagramma con conseguente stesura del codice.
 
 * **Diagramma delle sequenze (Statistiche e filtri)**
 ![Diagramma sequenze](https://user-images.githubusercontent.com/74972537/102870221-06a36f00-443d-11eb-9c59-d2016f8625fe.png)
