@@ -64,7 +64,7 @@ Da ricordare di mettere la foto !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ![Diagramma sequenze](https://user-images.githubusercontent.com/74972537/102870221-06a36f00-443d-11eb-9c59-d2016f8625fe.png)
 
 * **Diagramma delle sequenze (API_SingleCity)**
-![immagine_2020-12-22_110958](https://user-images.githubusercontent.com/74972537/102876925-39059a00-4446-11eb-8d85-4146b67006ea.png)
+![diagramma sequenze single city](https://user-images.githubusercontent.com/74972537/102877073-7407cd80-4446-11eb-8776-a8f469d9c077.png)
 
 
 ## Software
