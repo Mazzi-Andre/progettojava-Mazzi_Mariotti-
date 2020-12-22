@@ -36,6 +36,7 @@ La seguente tabella rappresenta le possibili chiamate GET o POST che è possibil
 |GET             |/metadati                      |restituisce i dati di tutte le città in esame al tempo attuale       |
 |GET             |/citta?city="nome"             |restituisce temperature e umidità di una singola città richiesta tramite un parametro   |
 |POST            |/stats?body     |restituisce una statistica su temperature e umidita (minime e massime) in un periodo specificato, rispettando i filtri nel body della richiesta |
+> **Attenzione** il valore della chiave City deve necessariamente avere la prima lettera di ogni parola maiuscola (es. Boston,New York).
 
 In particolare le funzioni filtro possibili sono:
 
