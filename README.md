@@ -59,7 +59,7 @@ In particolare le funzioni filtro possibili sono:
 * **Diagramma delle classi**
 Da ricordare di mettere la foto !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-* **Diagrammi delle sequenze (Statistiche e filtri)
+* **Diagrammi delle sequenze (Statistiche e filtri)**
 ![Diagramma sequenze](https://user-images.githubusercontent.com/74972537/102870221-06a36f00-443d-11eb-9c59-d2016f8625fe.png)
 
 ## Software
