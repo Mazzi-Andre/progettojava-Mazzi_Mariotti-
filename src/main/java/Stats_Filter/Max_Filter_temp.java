@@ -3,6 +3,13 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+
+	/**
+	 * Classe per la restituzione del valore massimo della temperatura percepita giornaliera.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Max_Filter_temp {
 	
 	private JSONArray position_meta = new JSONArray();
@@ -28,10 +35,17 @@ public class Max_Filter_temp {
 		}
 	}
 
+	/**
+	 * @return Città con la temperatura massima percepita.
+	 */
 	
 	public String getCitta () {
 		return citta;
 	}
+	
+	/**
+	 * @return Temperatura massima percepita.
+	 */
 	
 	public double getMax () {
 		return max;

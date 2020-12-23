@@ -3,6 +3,12 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+	/**
+	 * Classe per la restituzione del valore minimo dell'umidità giornaliera.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Min_hum_filter {
 	
 	private JSONArray meta_position = new JSONArray();
@@ -34,13 +40,25 @@ public class Min_hum_filter {
 		}
 	}
 	
+	/**
+	 * @return Città con l'umidità minima.
+	 */
+	
 	public String getCitta () {
 		return City;
 	}
 	
+	/**
+	 * @return Umidità minima.
+	 */
+	
 	public long getMin () {
 		return Min;
 	}
+	
+	/**
+	 * @return Data giornaliera.
+	 */
 	
 	public int [] getDate () {
 		return date;

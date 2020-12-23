@@ -30,6 +30,8 @@ public class API_SingleCity {
 	private HashMap <String,String> id_city = new HashMap <String,String> ();
 	private JSONObject City = new JSONObject();
 	
+	//Nel costruttore della classe si inizializza l'HashMap con chiave valore degli id delle città
+	
 	public API_SingleCity () {
 		id_city.put("New York", "5039192");
 		id_city.put("Los Angeles", "5344994");

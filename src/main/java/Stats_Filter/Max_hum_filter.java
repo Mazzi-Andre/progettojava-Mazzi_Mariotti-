@@ -3,6 +3,12 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+	/**
+	 * Classe per la restituzione del valore massimo della umidità giornaliera.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Max_hum_filter {
 	
 	private JSONArray meta_position = new JSONArray();
@@ -28,9 +34,17 @@ public class Max_hum_filter {
 		}
 	}
 	
+	/**
+	 * @return Città con l'umidità massima.
+	 */
+	
 	public String getCitta () {
 		return citta;
 	}
+	
+	/**
+	 * @return Umidità massima.
+	 */
 	
 	public long getMax () {
 		return max;
