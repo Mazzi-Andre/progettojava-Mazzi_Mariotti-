@@ -3,6 +3,13 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+
+	/**
+	 * Classe per la gestione del body utilizzata per le richieste POST.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Body {
 	
 	private int period;
@@ -21,18 +28,34 @@ public class Body {
 		a.add(obj);
 		
 	}
+	
+	/**
+	 * @return JSOArray di default.
+	 */
 
 	public JSONArray getA() {
 		return a;
 	}
+	
+	/**
+	 * @return rateo selezionato.
+	 */
 
 	public int getPeriod() {
 		return period;
 	}
+	
+	/**
+	 * @return boolean azione richiesta umidità.
+	 */
 
 	public boolean isHum() {
 		return hum;
 	}
+	
+	/**
+	 * @return boolean azione richiesta temperatura percepita.
+	 */
 
 	public boolean isTemp() {
 		return temp;

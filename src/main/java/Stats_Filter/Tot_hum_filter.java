@@ -3,6 +3,12 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+	/**
+	 * Classe per la restituzione dei valori massimo e minimo dell'umidità nell'arco del periodo selezionato.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Tot_hum_filter {
 	
 	private JSONArray meta = new JSONArray();
@@ -11,6 +17,11 @@ public class Tot_hum_filter {
 	public Tot_hum_filter ( JSONArray a ) {
 		meta = a;
 	}
+	
+	/**
+	 * Metodo per la ricerca dei valori.
+	 * @param period
+	 */
 	
 	public void hum_tot (int period) {
 		
@@ -73,6 +84,10 @@ public class Tot_hum_filter {
 		tot_hum.add(ar2);
 		
 	}
+	
+	/**
+	 * @return JSONArray contenente i valori.
+	 */
 	
 	public JSONArray getTot_hum () {
 		return tot_hum;

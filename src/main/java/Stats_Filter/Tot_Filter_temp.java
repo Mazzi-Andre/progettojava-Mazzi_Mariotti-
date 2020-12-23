@@ -3,6 +3,12 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+	/**
+	 * Classe per la restituzione dei valori massimo e minimo della temperatura percepita nell'arco del periodo selezionato.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Tot_Filter_temp {
 	
 	private JSONArray meta = new JSONArray();
@@ -12,6 +18,11 @@ public class Tot_Filter_temp {
 	public Tot_Filter_temp ( JSONArray a ) {
 		meta = a;
 	}
+	
+	/**
+	 * Metodo per la ricerca dei valori.
+	 * @param period
+	 */
 	
 	public void tot_temp (int period) {
 		
@@ -74,6 +85,10 @@ public class Tot_Filter_temp {
 		tot_temp.add(ar2);
 		
 	}
+	
+	/**
+	 * @return JSONArray contenente i valori.
+	 */
 	
 	public JSONArray getTot_temp () {
 		return tot_temp;

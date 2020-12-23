@@ -3,6 +3,12 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+	/**
+	 * Classe per la restituzione del valore minimo della temperatura percepita giornaliera.
+	 * @author Manuel Mariotti
+	 * @author Andrè Mazzi
+	 */
+
 public class Min_Filter_temp {
 	
 	private JSONArray position_meta = new JSONArray();
@@ -32,13 +38,25 @@ public class Min_Filter_temp {
 		}
 	}
 	
+	/**
+	 * @return Città con la temperatura minima percepita.
+	 */
+	
 	public String getCitta () {
 		return City;
 	}
 	
+	/**
+	 * @return Temperatura minima percepita.
+	 */
+	
 	public double getMin () {
 		return Min;
 	}
+	
+	/**
+	 * @return Data giornaliera.
+	 */
 	
 	public int [] getDate () {
 		return date;

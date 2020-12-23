@@ -26,6 +26,8 @@ public class API_allCities {
 	protected Vector <String> cities_names = new Vector <String> (); 
 	protected JSONObject Cities_time = new JSONObject ();
 	
+	//Nel costruttore della classe: 1) si inizializza il Vector <String> contenente gli url API corrispondenti ai dati delle città interessate
+	//				   2) si inizializza il Vector <String> contenente i nomi delle città interessate
 	
 	public API_allCities () {
 		urls.add("https://api.openweathermap.org/data/2.5/weather?id=6621230&appid=e253aeaf220a6c4bf5489677fafb6474");
