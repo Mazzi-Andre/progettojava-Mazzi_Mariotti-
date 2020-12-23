@@ -21,14 +21,26 @@ public class Max_Filter_temp {
 		position_meta=a;
 		JSONObject o = new JSONObject();
 		o = (JSONObject) position_meta.get(0);
-		max = (double) o.get("Temperatura percepita");
+		if(o.get("Temperatura percepita") instanceof Long) {
+			Long l= new Long( (long) o.get("Temperatura percepita") );
+			max= l.doubleValue();
+		}
+		else max=(double) o.get("Temperatura percepita");
+		
 		citta = (String) o.get("Citta");
 		
 		for (int i=1; i<a.size(); i++) {
-			
 			o=(JSONObject) position_meta.get(i);
-			if (max < (double) o.get("Temperatura percepita")) {
-				max = (double) o.get("Temperatura percepita");
+			
+			double support;
+			if(o.get("Temperatura percepita") instanceof Long) {
+				Long l= new Long( (long) o.get("Temperatura percepita") );
+				support= l.doubleValue();
+			}
+			else support = (double) o.get("Temperatura percepita");
+			
+			if (max < support) {
+				max = support;
 				citta= (String) o.get("Citta");
 				
 			}

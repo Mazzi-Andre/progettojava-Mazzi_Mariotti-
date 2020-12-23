@@ -3,6 +3,8 @@ package Stats_Filter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+
+
 	/**
 	 * Classe per la restituzione del valore minimo della temperatura percepita giornaliera.
 	 * @author Manuel Mariotti
@@ -15,6 +17,7 @@ public class Min_Filter_temp {
 	private int date[]= new int [3];
 	
 	private double Min;
+	private long Min_l;
 	private String City;
 	
 	public Min_Filter_temp( JSONArray A ) {
@@ -22,7 +25,11 @@ public class Min_Filter_temp {
 		position_meta=A;
 		JSONObject o = new JSONObject();
 		o= (JSONObject) position_meta.get(0);
-		Min= (double) o.get("Temperatura percepita");
+		if(o.get("Temperatura percepita") instanceof Long) {
+			Long l= new Long( (long) o.get("Temperatura percepita") );
+			Min= l.doubleValue();
+		}
+		else Min=(double) o.get("Temperatura percepita");
 		City= (String) o.get("Citta");
 		
 		date[0]= (int) o.get("anno");
@@ -31,8 +38,16 @@ public class Min_Filter_temp {
 		
 		for (int i=1; i<position_meta.size(); i++) {
 			o=(JSONObject) position_meta.get(i);
-			if (Min > (double) o.get("Temperatura percepita")) {
-				Min = (double) o.get("Temperatura percepita");
+			
+			double support;
+			if(o.get("Temperatura percepita") instanceof Long) {
+				Long l= new Long( (long) o.get("Temperatura percepita") );
+				support= l.doubleValue();
+			}
+			else support = (double) o.get("Temperatura percepita");
+			
+			if (Min > support) {
+				Min = support;
 				City= (String) o.get("Citta");
 			}
 		}

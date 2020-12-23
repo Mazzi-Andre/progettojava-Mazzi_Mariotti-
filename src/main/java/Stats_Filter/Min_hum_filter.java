@@ -22,7 +22,11 @@ public class Min_hum_filter {
 		meta_position = A;
 		JSONObject o = new JSONObject();
 		o = (JSONObject) meta_position.get(0);
-		Min = (long) o.get("Umidita");
+		if(o.get("Umidita") instanceof Double) {
+			Double l= new Double( (double) o.get("Umidita") );
+			Min= l.longValue();
+		}
+		else Min=(long) o.get("Umidita");
 		City= (String) o.get("Citta");
 		
 		date[0]= (int) o.get("anno");
@@ -32,8 +36,16 @@ public class Min_hum_filter {
 		for (int i=1; i<meta_position.size(); i++) {
 			
 			o = (JSONObject) meta_position.get(i);
-			if ( Min > (long) o.get("Umidita") ) {
-				Min =(long) o.get("Umidita"); 
+			
+			long support;
+			if(o.get("Umidita") instanceof Double) {
+				Double l= new Double( (Double) o.get("Umidita") );
+				support= l.longValue();
+			}
+			else support = (long) o.get("Umidita");
+			
+			if ( Min > support ) {
+				Min =support; 
 				City= (String) o.get("Citta");
 				
 			}
