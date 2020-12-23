@@ -22,14 +22,14 @@ Inoltre si ha la possibiltà di restituire statistiche periodiche settimanali o 
 Il progetto si basa sul concetto di Web Service, ovvero la possbilità tramite un client (es. Postman) di acquisire i dati richiesti attraverso un protocollo di comunicazione HTTP; 
 Questo tramite l'applicativo SpringBoot, un progetto del freamwork Spring, che consente tramite l'appoggio server di Tomcat di generare un'host locale (di default `localHost:8080`).
 
-Per l'acquisizione dei dati di cui necessitavamo riguardanti le temperature e le umidità, abbiamo sfruttato le API OpenWeather (`api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}`) che mettevano a disposizione i valori giornalieri aggiornati.
+Per l'acquisizione dei dati di cui necessitavamo riguardanti le temperature e le umidità, abbiamo sfruttato le API OpenWeather (`api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}`) che mettevano a disposizione valori giornalieri aggiornati.
 
-Il Data-Set è rappresentato da un file formato Json nella quale sono state salvate le informazioni relative ai giorni passati. Inoltre tramite una funzionalità di autosalvataggio, il file verrà caricato nuovamente di valori aggiornati ogni 2 ore.
+Il Data-Set è rappresentato da un file formato Json nel quale sono stati salvati dati relativi ai giorni passati. Inoltre tramite una funzionalità di autosalvataggio, il file verrà caricato nuovamente di valori aggiornati ogni 2 ore.
 > **Nota**: i dati sono stati necessariamente salvati per mancanza di API che restituissero informazioni di giorni passati.
 
 ## Request 
 
-La seguente tabella rappresenta le possibili chiamate GET o POST che è possibile effettuare tramite un API testing:
+La seguente tabella rappresenta le chiamate GET o POST che possono essere effettuate tramite un API testing:
 
 |    TIPO        |ROTTA                          |DESCRIZIONE                                |
 |----------------|-------------------------------|-------------------------------------------|
@@ -48,9 +48,9 @@ In particolare le funzioni filtro possibili sono:
 
 ### Controlli
 
-* **Controllo GET** `http://localhost:8080/metadati`: esegue la chimata al metodo **Rest_allCities**, il quale avvierà il metodo `Download_allCities` contenuto nella classe **API_allCities**, consentendo il download delle informazini da API di tutte le città e la successiva restituzione elaborata.
+* **Controllo GET** `http://localhost:8080/metadati`: esegue la chiamata al metodo **Rest_allCities**, il quale avvierà il metodo `Download_allCities` contenuto nella classe **API_allCities**, consentendo il download delle informazioni da API di tutte le città e la successiva restituzione elaborata.
 * **Controllo GET** `http://localhost:8080/citta?city="nome"`: esegue la chimata al metodo **Rest_SingleCity**, il quale avvierà il metodo `Download_SingleCities` contenuto nella classe **API_SingleCities**, consentendo il download delle informazioni da API della singola città e la successiva restituzione elaborata.
-* **Controllo POST** `http://localhost:8080/stats`: tramite le funzionalità del body richiama le classi **Hum_stats** e **Temp_stats**, grazie alla quale avendo già letto il file Data-set tramite la classe *JSONFile_Mgmt*, che restituiscono i valori della statistica.
+* **Controllo POST** `http://localhost:8080/stats`: tramite le funzionalità del body richiama le classi **Hum_stats** e **Temp_stats**, grazie alle quali avendo già letto il file Data-set tramite la classe *JSONFile_Mgmt*, restituiscono i valori della statistica.
 
 ### Grafici
 
@@ -60,7 +60,7 @@ In particolare le funzioni filtro possibili sono:
 * **Diagramma delle classi**
 ![Uml_class](https://user-images.githubusercontent.com/74972537/102882038-0cee1700-444e-11eb-9284-cacc8a59378e.jpg)
 
-> **Nota**: il diagramma delle classi non risulta aggiornato al codice del progetto finale per il fatto che le modifiche sono state apportate per convenienze progettuali al livello di programmazione, quindi il suo aggiornamento risultava essere contro il concetto di stesura del diagramma con conseguente stesura del codice.
+> **Nota**: il diagramma delle classi non risulta aggiornato al codice del progetto finale per il motivo che le modifiche sono state apportate per convenienze progettuali al livello di programmazione, quindi il suo aggiornamento risultava essere contro il concetto di stesura del diagramma con conseguente stesura del codice.
 
 * **Diagramma delle sequenze (Statistiche e filtri)**
 ![Diagramma sequenze](https://user-images.githubusercontent.com/74972537/102870221-06a36f00-443d-11eb-9c59-d2016f8625fe.png)
